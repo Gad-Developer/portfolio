@@ -1,0 +1,34 @@
+[
+  {
+    "category": "Frontend Engineering",
+    "skills": [
+      { "name": "React.js / Next.js", "level": "Advanced", "highlight": true },
+      { "name": "TypeScript", "level": "Advanced", "highlight": true },
+      { "name": "Tailwind CSS", "level": "Advanced", "highlight": true },
+      { "name": "State Management (Zustand/Redux)", "level": "Advanced" },
+      { "name": "Framer Motion / Micro-interactions", "level": "Proficient" },
+      { "name": "Responsive & Accessible UI (A11y)", "level": "Advanced" }
+    ]
+  },
+  {
+    "category": "Backend & System Architecture",
+    "skills": [
+      { "name": "Node.js / Express / Next API Routes", "level": "Advanced", "highlight": true },
+      { "name": "MongoDB & Mongoose Schema Design", "level": "Advanced", "highlight": true },
+      { "name": "In-Memory Caching (Redis / Upstash)", "level": "Advanced", "highlight": true },
+      { "name": "RESTful & Third-Party API Integrations", "level": "Advanced" },
+      { "name": "Authentication & Session Security (JWT/Cookies)", "level": "Advanced" },
+      { "name": "Bot Automation (Telegram & WhatsApp APIs)", "level": "Specialized" }
+    ]
+  },
+  {
+    "category": "Performance, SEO & Delivery",
+    "skills": [
+      { "name": "Core Web Vitals Optimization (LCP/INP/CLS)", "level": "Advanced", "highlight": true },
+      { "name": "Generative Engine Optimization (GEO) & JSON-LD", "level": "Specialized", "highlight": true },
+      { "name": "Image & Video Compression Pipelines", "level": "Advanced" },
+      { "name": "Git & CI/CD Pipelines (Vercel, GitHub Pages)", "level": "Advanced" },
+      { "name": "Clean Code Architecture & Type Safety", "level": "Advanced" }
+    ]
+  }
+]

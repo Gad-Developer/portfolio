@@ -1,0 +1,21 @@
+{
+  "name": "Gad",
+  "role": "Full-Stack Software Engineer",
+  "status": "Available for High-Impact Projects",
+  "bio": "Building high-performance, resilient web applications and high-conversion e-commerce systems with modern tech stacks, instant load times, and clean architecture.",
+  "subBio": "Specialized in React, Next.js, TypeScript, Node.js, and high-speed database caching. I turn complex commercial requirements into fast, scalable, and intuitive digital products.",
+  "location": "Global / Remote",
+  "experienceYears": "Commercial Experience",
+  "stats": [
+    { "label": "Projects Delivered", "value": "Production-Ready" },
+    { "label": "Architecture Focus", "value": "Performance & GEO" },
+    { "label": "Code Standard", "value": "100% Type-Safe" },
+    { "label": "Load Speeds", "value": "< 1.5s CWV" }
+  ],
+  "socials": {
+    "github": "https://github.com/Gad-Developer",
+    "email": "gad.developer.pro@gmail.com",
+    "whatsapp": "https://wa.me/",
+    "telegram": "https://t.me/"
+  }
+}

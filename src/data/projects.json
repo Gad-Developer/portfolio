@@ -1,0 +1,68 @@
+[
+  {
+    "id": "muscle-gate-supplements",
+    "title": "Muscle Gate — Sports Nutrition & Supplements Platform",
+    "tagline": "High-performance commercial e-commerce engineered for sports nutrition, featuring multi-attribute filtering, Upstash Redis caching, and bilingual AI search architecture.",
+    "category": "Full-Stack",
+    "featured": true,
+    "completedDate": "2026-09",
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "Upstash Redis",
+      "Zustand"
+    ],
+    "description": "A full-scale commercial web application built to serve sports nutrition athletes and bodybuilding enthusiasts. Designed with performance at its core, it features dynamic attribute filtering, in-memory caching to eliminate catalog latency, responsive stateful cart management, and automated order dispatch directly to customer service channels.",
+    "keyFeatures": [
+      "Dynamic multi-attribute catalog filtering (Brand, Category, Price, Goals) with instant UI state updates",
+      "In-memory caching layer via Upstash Redis providing ultra-fast catalog and query response times",
+      "Resilient shopping cart state management with Zustand for seamless multi-device persistence",
+      "Automated order dispatch pipelines integrated with Telegram Bot and WhatsApp APIs",
+      "Structured bilingual JSON-LD Schema (OnlineStore, Product, FAQPage) engineered for Google Search & Generative AI engine discovery (GEO)"
+    ],
+    "metrics": [
+      "Sub-millisecond Redis Cache",
+      "Bilingual GEO Schema",
+      "100% Mobile & Desktop Responsive"
+    ],
+    "liveUrl": "https://muscle-gate-supplements.vercel.app/",
+    "media": {
+      "videoWalkthrough": "videos/Steroids-Supplements.mp4",
+      "videoAspectRatio": "16/9"
+    }
+  },
+  {
+    "id": "al-aseel-honey",
+    "title": "Al-Aseel — Premium Raw Honey & Natural Wellness",
+    "tagline": "Fluid, interactive e-commerce store showcasing 130+ natural honey products with animated visual components, smooth carousel controls, and sub-second load times.",
+    "category": "E-Commerce",
+    "featured": true,
+    "completedDate": "2026-09",
+    "techStack": [
+      "React",
+      "JavaScript",
+      "Vite",
+      "Tailwind CSS"
+    ],
+    "description": "An artisanal e-commerce web application crafted for a luxury honey brand. Features an expansive catalog of over 130 SKUs, custom-engineered promotional animations, an interactive brand narrative walkthrough, and aggressive asset optimization delivering lightning-fast initial load times.",
+    "keyFeatures": [
+      "Fast catalog pagination and multi-filter system (Origin, Health Benefit Tags, Price Range)",
+      "Interactive horizontal discount carousel and animated pendulum discount cards for promotional impact",
+      "Chapter-based brand story narrative with interactive visual storytelling",
+      "Secret growth modal triggered with shortcut keys for direct business & wholesale inquiries",
+      "Aggressive media optimization pipeline compressing assets by 84% without visual degradation"
+    ],
+    "metrics": [
+      "84% Asset Compression",
+      "130+ Products Catalog",
+      "1.4s Instant Build"
+    ],
+    "liveUrl": "https://honey-project-snowy.vercel.app/",
+    "media": {
+      "videoWalkthrough": "videos/Honey.mp4",
+      "videoAspectRatio": "16/9"
+    }
+  }
+]
