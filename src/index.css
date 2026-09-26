@@ -11,8 +11,8 @@
   }
 
   body {
-    background-color: #f1f5f9;
-    color: #0f172a;
+    background-color: #f8f9fa; /* Restored original calm eye-friendly off-white */
+    color: #0f172a; /* Deep slate-900 readable text */
     min-height: 100vh;
     overflow-x: hidden;
     font-family: 'Cairo', system-ui, -apple-system, sans-serif;
@@ -20,8 +20,8 @@
   }
 
   ::selection {
-    background-color: #bbf7d0; /* Soft emerald highlight */
-    color: #0f172a !important; /* Preserves dark, high-contrast text */
+    background-color: #bbf7d0; /* Clean soft emerald highlight */
+    color: #0f172a !important; /* Preserves dark font color, never overwrites */
   }
 }
 
@@ -31,12 +31,12 @@
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #e2e8f0;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #94a3b8;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #94a3b8;
 }

@@ -48,8 +48,8 @@ export interface Profile {
     linkedin?: string;
     facebook?: string;
     instagram?: string;
-    whatsapp?: string;
-    telegram?: string;
+    whatsapp: string;
+    whatsappDisplay: string;
     email: string;
   };
 }

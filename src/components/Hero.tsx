@@ -1,5 +1,5 @@
-import { MapPin, ArrowDown } from 'lucide-react';
-import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon } from './icons/SocialIcons';
+import { MapPin, ArrowDown, ArrowUpRight } from 'lucide-react';
+import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons/SocialIcons';
 import profileData from '../data/profile.json';
 import type { Profile } from '../types';
 
@@ -74,6 +74,19 @@ export const Hero = () => {
 
               {/* Social Channels Row */}
               <div className="flex flex-wrap items-center gap-2.5 pt-3">
+                {profile.socials.whatsapp && (
+                  <a
+                    href={profile.socials.whatsapp}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-black transition shadow-xs"
+                    title="Direct WhatsApp Chat"
+                  >
+                    <WhatsAppIcon className="w-4 h-4" />
+                    <span>WhatsApp: {profile.socials.whatsappDisplay}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-emerald-100" />
+                  </a>
+                )}
                 {profile.socials.github && (
                   <a
                     href={profile.socials.github}

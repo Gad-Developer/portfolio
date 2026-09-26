@@ -8,7 +8,7 @@ import { Footer } from './components/Footer';
 
 export function App() {
   return (
-    <div className="min-h-screen bg-[#f1f5f9] text-slate-900 flex flex-col selection:bg-emerald-200 selection:text-slate-950">
+    <div className="min-h-screen bg-[#f8f9fa] text-slate-900 flex flex-col selection:bg-emerald-200 selection:text-slate-950">
       <Navbar />
       <main className="flex-grow">
         <Hero />

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Menu, X, Mail } from 'lucide-react';
-import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon } from './icons/SocialIcons';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons/SocialIcons';
 import profileData from '../data/profile.json';
 import type { Profile } from '../types';
 
@@ -51,7 +51,7 @@ export const Navbar = () => {
             </a>
           </nav>
 
-          {/* Social Icons & Email Button */}
+          {/* Social Icons & Primary WhatsApp Button */}
           <div className="hidden sm:flex items-center gap-2">
             {profile.socials.github && (
               <a
@@ -100,12 +100,17 @@ export const Navbar = () => {
 
             <div className="h-5 w-px bg-slate-300 mx-1.5" />
 
+            {/* Primary WhatsApp Redirect Button */}
             <a
-              href={`mailto:${profile.socials.email}`}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm transition shadow-sm"
+              href={profile.socials.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs sm:text-sm transition shadow-xs"
+              title="Open WhatsApp Direct Chat"
             >
-              <Mail className="w-3.5 h-3.5" />
-              <span>Contact</span>
+              <WhatsAppIcon className="w-4 h-4" />
+              <span>WhatsApp: {profile.socials.whatsappDisplay}</span>
+              <ArrowUpRight className="w-3 h-3 text-emerald-100" />
             </a>
           </div>
 
@@ -154,35 +159,40 @@ export const Navbar = () => {
             Contact
           </a>
 
-          <div className="pt-3 border-t border-slate-200 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              {profile.socials.github && (
-                <a href={profile.socials.github} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
-                  <GithubIcon className="w-4 h-4" />
-                </a>
-              )}
-              {profile.socials.linkedin && (
-                <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
-                  <LinkedInIcon className="w-4 h-4" />
-                </a>
-              )}
-              {profile.socials.facebook && (
-                <a href={profile.socials.facebook} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
-                  <FacebookIcon className="w-4 h-4" />
-                </a>
-              )}
-              {profile.socials.instagram && (
-                <a href={profile.socials.instagram} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
-                  <InstagramIcon className="w-4 h-4" />
-                </a>
-              )}
+          <div className="pt-3 border-t border-slate-200 flex flex-col gap-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                {profile.socials.github && (
+                  <a href={profile.socials.github} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
+                    <GithubIcon className="w-4 h-4" />
+                  </a>
+                )}
+                {profile.socials.linkedin && (
+                  <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
+                    <LinkedInIcon className="w-4 h-4" />
+                  </a>
+                )}
+                {profile.socials.facebook && (
+                  <a href={profile.socials.facebook} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
+                    <FacebookIcon className="w-4 h-4" />
+                  </a>
+                )}
+                {profile.socials.instagram && (
+                  <a href={profile.socials.instagram} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
+                    <InstagramIcon className="w-4 h-4" />
+                  </a>
+                )}
+              </div>
             </div>
+
             <a
-              href={`mailto:${profile.socials.email}`}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-950 text-white font-bold text-xs sm:text-sm"
+              href={profile.socials.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-black text-sm"
             >
-              <Mail className="w-3.5 h-3.5" />
-              <span>Contact</span>
+              <WhatsAppIcon className="w-4 h-4" />
+              <span>WhatsApp: {profile.socials.whatsappDisplay} ↗</span>
             </a>
           </div>
         </div>
