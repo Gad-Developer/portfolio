@@ -3,25 +3,25 @@ import { ShieldCheck, Gauge, Layers, Terminal } from 'lucide-react';
 export const AboutSection = () => {
   const principles = [
     {
-      icon: <Gauge className="w-4 h-4 text-slate-800" />,
+      icon: <Gauge className="w-5 h-5 text-slate-900" />,
       title: "Fast Speeds & Caching",
       description:
         "Using Redis in-memory caching and optimized image compression (80%+ smaller) so pages load in milliseconds."
     },
     {
-      icon: <ShieldCheck className="w-4 h-4 text-slate-800" />,
+      icon: <ShieldCheck className="w-5 h-5 text-slate-900" />,
       title: "Reliable & Secure Code",
       description:
         "Clean server validation, secure sessions via HttpOnly cookies, and strict client data confidentiality."
     },
     {
-      icon: <Layers className="w-4 h-4 text-slate-800" />,
+      icon: <Layers className="w-5 h-5 text-slate-900" />,
       title: "Search & SEO Optimization",
       description:
         "Implementing rich JSON-LD schemas so products and pages show up clearly in Google Search and modern AI answers."
     },
     {
-      icon: <Terminal className="w-4 h-4 text-slate-800" />,
+      icon: <Terminal className="w-5 h-5 text-slate-900" />,
       title: "Clean TypeScript Code",
       description:
         "Writing clean, typed, modular code that is simple to understand, maintain, and expand as the project grows."
@@ -29,18 +29,18 @@ export const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-10 sm:py-14 border-t border-slate-200/80">
+    <section id="about" className="py-12 sm:py-16 border-t border-slate-300">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column */}
-          <div className="lg:col-span-5 space-y-3">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          <div className="lg:col-span-5 space-y-3.5">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               Development Standards
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <p className="text-sm sm:text-base font-semibold text-slate-700 leading-relaxed">
               I focus on building commercial websites and web apps that are fast, easy to navigate, and reliable for customers and business owners.
             </p>
-            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+            <p className="text-sm sm:text-base font-medium text-slate-600 leading-relaxed">
               Every project is built with clean code, tested on mobile and desktop, and deployed on modern fast hosting.
             </p>
           </div>
@@ -50,15 +50,15 @@ export const AboutSection = () => {
             {principles.map((p, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-xl border border-slate-200/90 p-4 shadow-xs space-y-2"
+                className="bg-white rounded-2xl border border-slate-300 p-5 shadow-sm space-y-2.5"
               >
-                <div className="p-1.5 rounded-md bg-slate-100 w-fit text-slate-800">
+                <div className="p-2 rounded-xl bg-slate-100 w-fit text-slate-900 border border-slate-200">
                   {p.icon}
                 </div>
-                <h3 className="font-bold text-xs sm:text-sm text-slate-900">
+                <h3 className="font-extrabold text-sm sm:text-base text-slate-900">
                   {p.title}
                 </h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm font-semibold text-slate-600 leading-relaxed">
                   {p.description}
                 </p>
               </div>

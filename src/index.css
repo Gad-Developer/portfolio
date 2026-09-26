@@ -11,26 +11,27 @@
   }
 
   body {
-    background-color: #f8fafc; /* Gentle slate-50 off-white, easy on the eyes */
-    color: #334155; /* Slate-700 readable charcoal */
+    background-color: #f1f5f9; /* Rich slate-100 to reduce white glare & increase contrast */
+    color: #0f172a; /* Slate-900 deep high-contrast text */
     min-height: 100vh;
     overflow-x: hidden;
     font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+    font-weight: 500;
   }
 }
 
 /* Subtle clean scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #e2e8f0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #94a3b8;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #64748b;
 }
