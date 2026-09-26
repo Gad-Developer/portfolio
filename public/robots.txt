@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gad-developer.github.io/portfolio/sitemap.xml
