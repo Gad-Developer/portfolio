@@ -16,12 +16,12 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
     : null;
 
   return (
-    <article className="bg-white rounded-2xl border border-zinc-200/90 hover:border-zinc-300 shadow-xs hover:shadow-sm transition-all duration-200 overflow-hidden flex flex-col">
+    <article className="bg-white rounded-2xl border border-slate-200/90 hover:border-slate-300 shadow-xs hover:shadow-sm transition-all duration-200 overflow-hidden flex flex-col">
       {/* Thumbnail Container */}
       {thumbnailSrc && (
         <div
           onClick={() => onOpenVideo(project)}
-          className="relative aspect-video w-full bg-zinc-100 overflow-hidden cursor-pointer group"
+          className="relative aspect-video w-full bg-slate-100 overflow-hidden cursor-pointer group"
         >
           <img
             src={thumbnailSrc}
@@ -30,16 +30,16 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
           />
 
           {/* Dark Overlay On Hover with Play Button */}
-          <div className="absolute inset-0 bg-zinc-950/20 group-hover:bg-zinc-950/40 transition-colors flex items-center justify-center">
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/95 text-zinc-900 text-xs font-semibold shadow-md group-hover:scale-105 transition-transform">
-              <Play className="w-3.5 h-3.5 fill-zinc-900 text-zinc-900" />
+          <div className="absolute inset-0 bg-slate-950/25 group-hover:bg-slate-950/45 transition-colors flex items-center justify-center">
+            <div className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/95 text-slate-900 text-xs font-semibold shadow-md group-hover:scale-105 transition-transform">
+              <Play className="w-3.5 h-3.5 fill-slate-900 text-slate-900" />
               <span>Watch Video Walkthrough</span>
             </div>
           </div>
 
           {/* Category Tag */}
           <div className="absolute top-3 left-3">
-            <span className="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-zinc-800 text-[11px] font-semibold shadow-xs border border-zinc-200">
+            <span className="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-slate-800 text-[11px] font-semibold shadow-xs border border-slate-200">
               {project.category}
             </span>
           </div>
@@ -50,17 +50,17 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
       <div className="p-5 sm:p-6 flex flex-col flex-grow justify-between space-y-4">
         <div className="space-y-3">
           {/* Header & Date */}
-          <div className="flex items-center justify-between text-xs text-zinc-500">
-            <span className="font-medium text-zinc-700">{project.category} Showcase</span>
+          <div className="flex items-center justify-between text-xs text-slate-500 font-medium">
+            <span className="text-slate-700">{project.category} Showcase</span>
             <span>{project.completedDate}</span>
           </div>
 
           {/* Title & Tagline */}
           <div>
-            <h3 className="text-lg sm:text-xl font-bold text-zinc-900 tracking-tight leading-snug">
+            <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">
               {project.title}
             </h3>
-            <p className="mt-1.5 text-xs sm:text-sm text-zinc-600 leading-relaxed">
+            <p className="mt-1.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
               {project.tagline}
             </p>
           </div>
@@ -70,7 +70,7 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
             {project.techStack.map((tech, idx) => (
               <span
                 key={idx}
-                className="px-2 py-0.5 rounded bg-zinc-100 text-zinc-700 text-xs font-mono border border-zinc-200/60"
+                className="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono border border-slate-200/60"
               >
                 {tech}
               </span>
@@ -78,13 +78,13 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
           </div>
 
           {/* Key Achievements Bulletpoints */}
-          <div className="pt-2 border-t border-zinc-100 space-y-1.5">
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400">
-              Engineering Highlights
+          <div className="pt-2 border-t border-slate-100 space-y-1.5">
+            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+              Key Highlights
             </div>
             <ul className="space-y-1.5">
               {project.keyFeatures.map((feat, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-xs text-zinc-600">
+                <li key={idx} className="flex items-start gap-2 text-xs text-slate-600">
                   <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                   <span className="leading-relaxed">{feat}</span>
                 </li>
@@ -108,13 +108,13 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="pt-4 border-t border-zinc-100 flex flex-wrap items-center justify-between gap-2.5">
+        <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2.5">
           <div className="flex items-center gap-2">
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-medium text-xs transition"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs transition shadow-xs"
             >
               <span>Live Website</span>
               <ExternalLink className="w-3 h-3" />
@@ -124,16 +124,16 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
               <button
                 type="button"
                 onClick={() => onOpenVideo(project)}
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-medium text-xs transition cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-medium text-xs transition cursor-pointer"
               >
-                <Play className="w-3 h-3 fill-zinc-800" />
+                <Play className="w-3 h-3 fill-slate-800" />
                 <span>Video Demo</span>
               </button>
             )}
           </div>
 
-          <div className="inline-flex items-center gap-1 text-[11px] text-zinc-500 font-mono">
-            <Shield className="w-3 h-3 text-zinc-400" />
+          <div className="inline-flex items-center gap-1 text-[11px] text-slate-500 font-mono">
+            <Shield className="w-3 h-3 text-slate-400" />
             <span>Private Client Repo</span>
           </div>
         </div>

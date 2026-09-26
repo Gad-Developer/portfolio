@@ -3,45 +3,45 @@ import { ShieldCheck, Gauge, Layers, Terminal } from 'lucide-react';
 export const AboutSection = () => {
   const principles = [
     {
-      icon: <Gauge className="w-4 h-4 text-zinc-800" />,
-      title: "Sub-Second Latency & Caching",
+      icon: <Gauge className="w-4 h-4 text-slate-800" />,
+      title: "Fast Speeds & Caching",
       description:
-        "Implementing Upstash Redis in-memory layers, query optimization, and asset compression (80%+ reductions) to eliminate lag and maximize user retention."
+        "Using Redis in-memory caching and optimized image compression (80%+ smaller) so pages load in milliseconds."
     },
     {
-      icon: <ShieldCheck className="w-4 h-4 text-zinc-800" />,
-      title: "Commercial-Grade Reliability",
+      icon: <ShieldCheck className="w-4 h-4 text-slate-800" />,
+      title: "Reliable & Secure Code",
       description:
-        "Building with secure HttpOnly cookie sessions, rigorous schema validations, and zero server crashes during traffic spikes."
+        "Clean server validation, secure sessions via HttpOnly cookies, and strict client data confidentiality."
     },
     {
-      icon: <Layers className="w-4 h-4 text-zinc-800" />,
-      title: "AI Search Optimization (GEO)",
+      icon: <Layers className="w-4 h-4 text-slate-800" />,
+      title: "Search & SEO Optimization",
       description:
-        "Structuring bilingual JSON-LD entities (OnlineStore, Product, FAQPage) so client platforms are directly discovered and cited by ChatGPT, Perplexity, and Google AI."
+        "Implementing rich JSON-LD schemas so products and pages show up clearly in Google Search and modern AI answers."
     },
     {
-      icon: <Terminal className="w-4 h-4 text-zinc-800" />,
-      title: "Type Safety & Clean Boundaries",
+      icon: <Terminal className="w-4 h-4 text-slate-800" />,
+      title: "Clean TypeScript Code",
       description:
-        "Strict TypeScript types and decoupled architectures that keep codebases predictable, testable, and effortless to extend."
+        "Writing clean, typed, modular code that is simple to understand, maintain, and expand as the project grows."
     }
   ];
 
   return (
-    <section id="about" className="py-10 sm:py-14 border-t border-zinc-200/80">
+    <section id="about" className="py-10 sm:py-14 border-t border-slate-200/80">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column */}
           <div className="lg:col-span-5 space-y-3">
-            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight">
-              Engineering Approach & Delivery
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              Development Standards
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
-              I focus on building commercial software that solves real operational bottlenecks, reduces server cost, and delivers responsive user experiences.
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              I focus on building commercial websites and web apps that are fast, easy to navigate, and reliable for customers and business owners.
             </p>
-            <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed">
-              Every system is engineered from day one with type safety, clean data layers, and fast deployment pipelines.
+            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+              Every project is built with clean code, tested on mobile and desktop, and deployed on modern fast hosting.
             </p>
           </div>
 
@@ -50,15 +50,15 @@ export const AboutSection = () => {
             {principles.map((p, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-xl border border-zinc-200/90 p-4 shadow-xs space-y-2"
+                className="bg-white rounded-xl border border-slate-200/90 p-4 shadow-xs space-y-2"
               >
-                <div className="p-1.5 rounded-md bg-zinc-100 w-fit text-zinc-800">
+                <div className="p-1.5 rounded-md bg-slate-100 w-fit text-slate-800">
                   {p.icon}
                 </div>
-                <h3 className="font-semibold text-xs sm:text-sm text-zinc-900">
+                <h3 className="font-bold text-xs sm:text-sm text-slate-900">
                   {p.title}
                 </h3>
-                <p className="text-xs text-zinc-600 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {p.description}
                 </p>
               </div>

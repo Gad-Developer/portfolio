@@ -20,16 +20,16 @@ export const ProjectsSection = () => {
   }, [selectedCategory]);
 
   return (
-    <section id="projects" className="py-10 sm:py-14 border-t border-zinc-200/80">
+    <section id="projects" className="py-10 sm:py-14 border-t border-slate-200/80">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight">
-              Selected Commercial Projects
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              Selected Projects
             </h2>
-            <p className="mt-1 text-xs sm:text-sm text-zinc-600">
-              Live production platforms engineered for performance, fast caching, and conversion.
+            <p className="mt-1 text-xs sm:text-sm text-slate-600">
+              Live production websites built for performance, reliability, and smooth user flow.
             </p>
           </div>
 
@@ -42,8 +42,8 @@ export const ProjectsSection = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-medium transition cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-zinc-900 text-white shadow-xs'
-                    : 'bg-white text-zinc-600 border border-zinc-200 hover:bg-zinc-50 hover:text-zinc-900'
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 hover:text-slate-900'
                 }`}
               >
                 {cat}

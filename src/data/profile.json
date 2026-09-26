@@ -1,17 +1,17 @@
 {
   "name": "Gad",
-  "role": "Full-Stack Software Engineer",
-  "status": "Available for Select Engagements",
-  "bio": "Building fast, reliable web applications and commercial e-commerce systems with clean architecture, sub-second load times, and intuitive design.",
-  "subBio": "Focusing on React, Next.js, TypeScript, Node.js, and high-speed in-memory caching. Practical engineering that drives real commercial results without unnecessary bloat.",
+  "role": "Full-Stack Developer",
+  "status": "Available for Projects",
+  "bio": "Building fast, reliable web applications and commercial e-commerce stores with clean structure, fast load times, and simple intuitive design.",
+  "subBio": "Focusing on React, Next.js, TypeScript, Node.js, and high-speed in-memory caching. Practical web development that delivers real business results without unnecessary bloat.",
   "location": "Available Worldwide / Remote",
   "avatar": "images/profile.png",
   "cover": "images/cover.png",
-  "experienceYears": "Commercial Delivery",
+  "experienceYears": "Commercial Work",
   "stats": [
-    { "label": "Engineering Standard", "value": "100% Type-Safe" },
-    { "label": "Database & Caching", "value": "Redis & MongoDB" },
-    { "label": "Deployment", "value": "Vercel & GitHub Actions" },
+    { "label": "Code Quality", "value": "Clean & Type-Safe" },
+    { "label": "Database & Cache", "value": "Redis & MongoDB" },
+    { "label": "Deployments", "value": "Vercel & GitHub Actions" },
     { "label": "Search & SEO", "value": "GEO & JSON-LD" }
   ],
   "socials": {

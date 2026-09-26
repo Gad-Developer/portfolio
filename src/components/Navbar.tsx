@@ -14,7 +14,7 @@ export const Navbar = () => {
     : `${import.meta.env.BASE_URL}/`;
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo / Brand */}
@@ -22,29 +22,29 @@ export const Navbar = () => {
             <img
               src={`${baseUrl}${profile.avatar}`}
               alt={profile.name}
-              className="w-8 h-8 rounded-full object-cover border border-zinc-200"
+              className="w-8 h-8 rounded-full object-cover border border-slate-200"
             />
             <div className="flex items-center gap-1.5">
-              <span className="font-semibold text-base tracking-tight text-zinc-900 group-hover:text-zinc-700 transition">
+              <span className="font-bold text-base tracking-tight text-slate-900 group-hover:text-slate-700 transition">
                 {profile.name}
               </span>
-              <span className="text-zinc-400 text-sm font-normal">/</span>
-              <span className="text-xs text-zinc-600 font-normal">Engineer</span>
+              <span className="text-slate-400 text-sm font-normal">/</span>
+              <span className="text-xs text-slate-600 font-medium">Developer</span>
             </div>
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-600">
-            <a href="#projects" className="hover:text-zinc-900 transition-colors">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
+            <a href="#projects" className="hover:text-slate-900 transition-colors">
               Projects
             </a>
-            <a href="#skills" className="hover:text-zinc-900 transition-colors">
-              Stack
+            <a href="#skills" className="hover:text-slate-900 transition-colors">
+              Skills & Stack
             </a>
-            <a href="#about" className="hover:text-zinc-900 transition-colors">
+            <a href="#about" className="hover:text-slate-900 transition-colors">
               About
             </a>
-            <a href="#contact" className="hover:text-zinc-900 transition-colors">
+            <a href="#contact" className="hover:text-slate-900 transition-colors">
               Contact
             </a>
           </nav>
@@ -56,7 +56,7 @@ export const Navbar = () => {
                 href={profile.socials.github}
                 target="_blank"
                 rel="noreferrer"
-                className="p-1.5 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 rounded-md transition"
+                className="p-1.5 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-md transition"
                 title="GitHub"
               >
                 <GithubIcon className="w-4 h-4" />
@@ -67,7 +67,7 @@ export const Navbar = () => {
                 href={profile.socials.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="p-1.5 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 rounded-md transition"
+                className="p-1.5 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-md transition"
                 title="LinkedIn"
               >
                 <LinkedInIcon className="w-4 h-4" />
@@ -78,7 +78,7 @@ export const Navbar = () => {
                 href={profile.socials.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="p-1.5 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 rounded-md transition"
+                className="p-1.5 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-md transition"
                 title="Facebook"
               >
                 <FacebookIcon className="w-4 h-4" />
@@ -89,18 +89,18 @@ export const Navbar = () => {
                 href={profile.socials.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="p-1.5 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 rounded-md transition"
+                className="p-1.5 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-md transition"
                 title="Instagram"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
             )}
 
-            <div className="h-4 w-px bg-zinc-200 mx-1" />
+            <div className="h-4 w-px bg-slate-200 mx-1" />
 
             <a
               href={`mailto:${profile.socials.email}`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-medium text-xs transition"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs transition shadow-xs"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>Contact</span>
@@ -111,7 +111,7 @@ export const Navbar = () => {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 rounded-lg text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100"
+              className="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -122,62 +122,62 @@ export const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-zinc-200 bg-white px-4 pt-3 pb-5 space-y-2">
+        <div className="md:hidden border-b border-slate-200 bg-white px-4 pt-3 pb-5 space-y-2">
           <a
             href="#projects"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-md text-sm font-medium text-zinc-700 hover:bg-zinc-100"
+            className="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100"
           >
             Projects
           </a>
           <a
             href="#skills"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-md text-sm font-medium text-zinc-700 hover:bg-zinc-100"
+            className="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100"
           >
-            Technical Stack
+            Skills & Stack
           </a>
           <a
             href="#about"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-md text-sm font-medium text-zinc-700 hover:bg-zinc-100"
+            className="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100"
           >
             About
           </a>
           <a
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-md text-sm font-medium text-zinc-700 hover:bg-zinc-100"
+            className="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:bg-slate-100"
           >
             Contact
           </a>
 
-          <div className="pt-3 border-t border-zinc-200 flex items-center justify-between">
+          <div className="pt-3 border-t border-slate-200 flex items-center justify-between">
             <div className="flex items-center gap-2">
               {profile.socials.github && (
-                <a href={profile.socials.github} target="_blank" rel="noreferrer" className="text-zinc-600 p-1">
+                <a href={profile.socials.github} target="_blank" rel="noreferrer" className="text-slate-600 p-1">
                   <GithubIcon className="w-4 h-4" />
                 </a>
               )}
               {profile.socials.linkedin && (
-                <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="text-zinc-600 p-1">
+                <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="text-slate-600 p-1">
                   <LinkedInIcon className="w-4 h-4" />
                 </a>
               )}
               {profile.socials.facebook && (
-                <a href={profile.socials.facebook} target="_blank" rel="noreferrer" className="text-zinc-600 p-1">
+                <a href={profile.socials.facebook} target="_blank" rel="noreferrer" className="text-slate-600 p-1">
                   <FacebookIcon className="w-4 h-4" />
                 </a>
               )}
               {profile.socials.instagram && (
-                <a href={profile.socials.instagram} target="_blank" rel="noreferrer" className="text-zinc-600 p-1">
+                <a href={profile.socials.instagram} target="_blank" rel="noreferrer" className="text-slate-600 p-1">
                   <InstagramIcon className="w-4 h-4" />
                 </a>
               )}
             </div>
             <a
               href={`mailto:${profile.socials.email}`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 text-white font-medium text-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 text-white font-medium text-xs"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>Contact</span>
