@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { X, ExternalLink, Film, Check } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../data/translations';
 import type { Project } from '../types';
 
 interface VideoModalProps {
@@ -10,6 +12,12 @@ interface VideoModalProps {
 export const VideoModal = ({ project, onClose }: VideoModalProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguage();
+  const t = translations[language].modal;
+  const projectTrans = project ? translations[language].projects.items[project.id as keyof typeof translations.en.projects.items] : null;
+
+  const projectTitle = projectTrans?.title ?? project?.title;
+  const projectFeatures = projectTrans?.keyFeatures ?? project?.keyFeatures;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -69,10 +77,10 @@ export const VideoModal = ({ project, onClose }: VideoModalProps) => {
             <Film className="w-4 h-4 text-zinc-700" />
             <div>
               <h2 id="video-modal-title" className="text-sm sm:text-base font-bold text-zinc-900 leading-tight">
-                {project.title}
+                {projectTitle}
               </h2>
               <p className="text-[11px] text-zinc-500">
-                HD Walkthrough Demo
+                {language === 'ar' ? 'معاينة تجربة الاستخدام بالفيديو' : 'HD Walkthrough Demo'}
               </p>
             </div>
           </div>
@@ -84,13 +92,13 @@ export const VideoModal = ({ project, onClose }: VideoModalProps) => {
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-xs font-medium text-zinc-800 transition"
             >
-              <span>Live Site</span>
+              <span>{t.liveStore}</span>
               <ExternalLink className="w-3 h-3" />
             </a>
             <button
               onClick={onClose}
               className="p-1.5 rounded-lg text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 transition cursor-pointer"
-              aria-label="Close dialog"
+              aria-label={t.close}
             >
               <X className="w-5 h-5" />
             </button>
@@ -125,10 +133,10 @@ export const VideoModal = ({ project, onClose }: VideoModalProps) => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-600">
-            {project.keyFeatures.slice(0, 4).map((feat, idx) => (
+            {projectFeatures?.slice(0, 4).map((feat, idx) => (
               <div key={idx} className="flex items-start gap-2">
                 <Check className="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" />
-                <span className="leading-relaxed">{feat}</span>
+                <span className="leading-relaxed font-medium">{feat}</span>
               </div>
             ))}
           </div>

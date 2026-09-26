@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react';
 import { ProjectCard } from './ProjectCard';
 import { VideoModal } from './VideoModal';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../data/translations';
 import projectsData from '../data/projects.json';
 import type { Project } from '../types';
 
@@ -9,6 +11,8 @@ const allProjects: Project[] = projectsData as Project[];
 export const ProjectsSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activeVideoProject, setActiveVideoProject] = useState<Project | null>(null);
+  const { language } = useLanguage();
+  const t = translations[language].projects;
 
   const categories = useMemo(() => {
     return ['All', ...new Set(allProjects.map((p) => p.category))];
@@ -26,10 +30,10 @@ export const ProjectsSection = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Selected Projects
+              {t.sectionTitle}
             </h2>
             <p className="mt-1 text-sm sm:text-base font-semibold text-slate-600">
-              Live production websites built for performance, reliability, and smooth user flow.
+              {t.sectionSubtitle}
             </p>
           </div>
 
@@ -46,7 +50,7 @@ export const ProjectsSection = () => {
                     : 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 hover:text-slate-900'
                 }`}
               >
-                {cat}
+                {cat === 'All' ? t.allCategory : cat}
               </button>
             ))}
           </div>
