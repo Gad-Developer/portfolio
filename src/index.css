@@ -11,12 +11,17 @@
   }
 
   body {
-    background-color: #f1f5f9; /* Rich slate-100 to reduce white glare & increase contrast */
-    color: #0f172a; /* Slate-900 deep high-contrast text */
+    background-color: #f1f5f9;
+    color: #0f172a;
     min-height: 100vh;
     overflow-x: hidden;
     font-family: 'Cairo', system-ui, -apple-system, sans-serif;
     font-weight: 500;
+  }
+
+  ::selection {
+    background-color: #bbf7d0; /* Soft emerald highlight */
+    color: #0f172a !important; /* Preserves dark, high-contrast text */
   }
 }
 

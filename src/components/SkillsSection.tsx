@@ -10,10 +10,10 @@ export const SkillsSection = () => {
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="mb-8">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
             Technical Skills & Tools
           </h2>
-          <p className="mt-1 text-sm sm:text-base font-semibold text-slate-600">
+          <p className="mt-1.5 text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
             Core technologies and tools I use to build fast, modern web applications.
           </p>
         </div>
@@ -27,8 +27,8 @@ export const SkillsSection = () => {
             >
               <div>
                 <div className="flex items-center gap-2.5 pb-3.5 border-b border-slate-200 mb-4">
-                  <Layers className="w-5 h-5 text-slate-800" />
-                  <h3 className="font-extrabold text-base sm:text-lg text-slate-900">
+                  <Layers className="w-5 h-5 text-slate-900" />
+                  <h3 className="font-black text-base sm:text-lg text-slate-950">
                     {cat.category}
                   </h3>
                 </div>
@@ -39,10 +39,10 @@ export const SkillsSection = () => {
                       key={sIdx}
                       className="px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between"
                     >
-                      <span className="font-bold text-sm text-slate-900">
+                      <span className="font-extrabold text-sm text-slate-950">
                         {skill.name}
                       </span>
-                      <span className="text-xs font-bold font-mono px-2 py-0.5 rounded bg-slate-200 text-slate-800 border border-slate-300">
+                      <span className="text-xs font-black font-mono px-2.5 py-1 rounded-md bg-slate-200 text-slate-900 border border-slate-300">
                         {skill.level}
                       </span>
                     </div>
