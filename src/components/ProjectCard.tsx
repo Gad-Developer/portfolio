@@ -1,4 +1,4 @@
-import { ExternalLink, Play, CheckCircle2, Shield, Layers } from 'lucide-react';
+import { ExternalLink, Play, Check, Shield } from 'lucide-react';
 import type { Project } from '../types';
 
 interface ProjectCardProps {
@@ -7,73 +7,60 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
-  const hasVideo = Boolean(project.media?.videoWalkthrough);
+  const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+
+  const thumbnailSrc = project.media?.thumbnail
+    ? `${baseUrl}${project.media.thumbnail.replace(/^\//, '')}`
+    : null;
 
   return (
-    <article className="group relative rounded-2xl bg-slate-900/70 border border-slate-800/80 hover:border-slate-700/90 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-950/20 overflow-hidden flex flex-col">
-      {/* Interactive Video Preview Box */}
-      {hasVideo && (
+    <article className="bg-white rounded-2xl border border-zinc-200/90 hover:border-zinc-300 shadow-xs hover:shadow-sm transition-all duration-200 overflow-hidden flex flex-col">
+      {/* Thumbnail Container */}
+      {thumbnailSrc && (
         <div
           onClick={() => onOpenVideo(project)}
-          className="relative aspect-video w-full bg-slate-950 border-b border-slate-800/70 overflow-hidden cursor-pointer group/video"
+          className="relative aspect-video w-full bg-zinc-100 overflow-hidden cursor-pointer group"
         >
-          {/* Subtle Ambient Backlight */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/50 to-transparent z-10" />
+          <img
+            src={thumbnailSrc}
+            alt={project.title}
+            className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
+          />
 
-          {/* Video preview / placeholder frame */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            {/* Pulsing rings */}
-            <div className="relative flex items-center justify-center">
-              <span className="absolute inline-flex h-20 w-20 rounded-full bg-emerald-500/20 animate-ping group-hover/video:bg-emerald-500/30" />
-              <button
-                type="button"
-                className="relative z-20 w-16 h-16 rounded-full bg-emerald-500/90 group-hover/video:bg-emerald-400 text-slate-950 flex items-center justify-center transition-all duration-200 shadow-xl shadow-emerald-500/30 group-hover/video:scale-110"
-                aria-label={`Watch walkthrough video for ${project.title}`}
-              >
-                <Play className="w-7 h-7 fill-slate-950 ml-0.5" />
-              </button>
+          {/* Dark Overlay On Hover with Play Button */}
+          <div className="absolute inset-0 bg-zinc-950/20 group-hover:bg-zinc-950/40 transition-colors flex items-center justify-center">
+            <div className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/95 text-zinc-900 text-xs font-semibold shadow-md group-hover:scale-105 transition-transform">
+              <Play className="w-3.5 h-3.5 fill-zinc-900 text-zinc-900" />
+              <span>Watch Video Walkthrough</span>
             </div>
           </div>
 
-          {/* Overlay info tags */}
-          <div className="absolute top-3 left-3 z-20 flex items-center gap-2">
-            <span className="px-2.5 py-1 rounded-md bg-slate-950/80 backdrop-blur-md text-emerald-400 text-xs font-semibold border border-emerald-500/30">
+          {/* Category Tag */}
+          <div className="absolute top-3 left-3">
+            <span className="px-2.5 py-1 rounded-md bg-white/90 backdrop-blur-sm text-zinc-800 text-[11px] font-semibold shadow-xs border border-zinc-200">
               {project.category}
-            </span>
-          </div>
-
-          <div className="absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between text-xs text-slate-300">
-            <span className="font-mono bg-slate-950/80 backdrop-blur-md px-2 py-1 rounded border border-slate-800">
-              ▶ Click to Watch Walkthrough
-            </span>
-            <span className="bg-emerald-950/80 text-emerald-400 font-mono px-2 py-1 rounded border border-emerald-800/50">
-              HD 1080p
             </span>
           </div>
         </div>
       )}
 
       {/* Card Content */}
-      <div className="p-6 sm:p-7 flex flex-col flex-grow justify-between space-y-6">
-        <div className="space-y-4">
-          {/* Header & Badges */}
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            {!hasVideo && (
-              <span className="px-2.5 py-1 rounded-md bg-emerald-950/60 text-emerald-400 text-xs font-semibold border border-emerald-800/60">
-                {project.category}
-              </span>
-            )}
-            <span className="text-xs font-mono text-slate-400 ml-auto">
-              Completed {project.completedDate}
-            </span>
+      <div className="p-5 sm:p-6 flex flex-col flex-grow justify-between space-y-4">
+        <div className="space-y-3">
+          {/* Header & Date */}
+          <div className="flex items-center justify-between text-xs text-zinc-500">
+            <span className="font-medium text-zinc-700">{project.category} Showcase</span>
+            <span>{project.completedDate}</span>
           </div>
 
           {/* Title & Tagline */}
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight group-hover:text-emerald-300 transition-colors">
+            <h3 className="text-lg sm:text-xl font-bold text-zinc-900 tracking-tight leading-snug">
               {project.title}
             </h3>
-            <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+            <p className="mt-1.5 text-xs sm:text-sm text-zinc-600 leading-relaxed">
               {project.tagline}
             </p>
           </div>
@@ -83,38 +70,37 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
             {project.techStack.map((tech, idx) => (
               <span
                 key={idx}
-                className="px-2.5 py-1 rounded-md bg-slate-800/90 text-slate-200 text-xs font-mono font-medium border border-slate-700/60 hover:border-emerald-500/40 transition-colors"
+                className="px-2 py-0.5 rounded bg-zinc-100 text-zinc-700 text-xs font-mono border border-zinc-200/60"
               >
                 {tech}
               </span>
             ))}
           </div>
 
-          {/* Key Engineering Features */}
-          <div className="pt-2 space-y-2">
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-              <Layers className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Key Engineering Highlights</span>
+          {/* Key Achievements Bulletpoints */}
+          <div className="pt-2 border-t border-zinc-100 space-y-1.5">
+            <div className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400">
+              Engineering Highlights
             </div>
             <ul className="space-y-1.5">
               {project.keyFeatures.map((feat, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-xs text-slate-300">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                <li key={idx} className="flex items-start gap-2 text-xs text-zinc-600">
+                  <Check className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                   <span className="leading-relaxed">{feat}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Metrics Pills */}
+          {/* Metrics */}
           {project.metrics && project.metrics.length > 0 && (
-            <div className="flex flex-wrap gap-2 pt-2">
+            <div className="flex flex-wrap gap-1.5 pt-1">
               {project.metrics.map((metric, idx) => (
                 <span
                   key={idx}
-                  className="px-2 py-0.5 rounded bg-emerald-950/40 text-emerald-300 border border-emerald-500/30 text-[11px] font-mono"
+                  className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200/80 text-[11px] font-mono"
                 >
-                  ⚡ {metric}
+                  ✓ {metric}
                 </span>
               ))}
             </div>
@@ -122,33 +108,32 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="pt-4 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
+        <div className="pt-4 border-t border-zinc-100 flex flex-wrap items-center justify-between gap-2.5">
           <div className="flex items-center gap-2">
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs transition duration-150 shadow-md shadow-emerald-500/20 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-medium text-xs transition"
             >
-              <span>Live Deployment</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <span>Live Website</span>
+              <ExternalLink className="w-3 h-3" />
             </a>
 
-            {hasVideo && (
+            {project.media.videoWalkthrough && (
               <button
                 type="button"
                 onClick={() => onOpenVideo(project)}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs border border-slate-700 transition"
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-medium text-xs transition cursor-pointer"
               >
-                <Play className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Walkthrough</span>
+                <Play className="w-3 h-3 fill-zinc-800" />
+                <span>Video Demo</span>
               </button>
             )}
           </div>
 
-          {/* Client Repo Status */}
-          <div className="inline-flex items-center gap-1 text-[11px] font-mono text-slate-400">
-            <Shield className="w-3 h-3 text-slate-400" />
+          <div className="inline-flex items-center gap-1 text-[11px] text-zinc-500 font-mono">
+            <Shield className="w-3 h-3 text-zinc-400" />
             <span>Private Client Repo</span>
           </div>
         </div>

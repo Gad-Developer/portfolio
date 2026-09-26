@@ -16,7 +16,7 @@ export interface Project {
   keyFeatures: string[];
   metrics?: string[];
   liveUrl: string;
-  githubUrl?: string; // Optional: omitted/empty for private client projects
+  githubUrl?: string;
   media: ProjectMedia;
 }
 
@@ -36,6 +36,8 @@ export interface Profile {
   bio: string;
   subBio: string;
   location: string;
+  avatar: string;
+  cover: string;
   experienceYears: string;
   stats: {
     label: string;
@@ -44,6 +46,8 @@ export interface Profile {
   socials: {
     github?: string;
     linkedin?: string;
+    facebook?: string;
+    instagram?: string;
     whatsapp?: string;
     telegram?: string;
     email: string;

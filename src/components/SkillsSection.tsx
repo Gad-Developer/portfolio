@@ -1,72 +1,48 @@
 import skillsData from '../data/skills.json';
 import type { SkillCategory } from '../types';
-import { Cpu, CheckCircle2, Zap } from 'lucide-react';
+import { Layers } from 'lucide-react';
 
 const skillCategories: SkillCategory[] = skillsData as SkillCategory[];
 
 export const SkillsSection = () => {
   return (
-    <section id="skills" className="py-16 sm:py-24 border-t border-slate-900 bg-slate-950/40 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-10 sm:py-14 border-t border-zinc-200/80">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3">
-            <Cpu className="w-3.5 h-3.5" />
-            <span>Core Competencies</span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Technical Stack & Architecture
+        <div className="mb-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight">
+            Technical Stack & Engineering Capabilities
           </h2>
-          <p className="mt-3 text-base text-slate-400 leading-relaxed">
-            Every tool in this stack is chosen for production reliability, type safety, sub-second latency,
-            and maintainability across scale.
+          <p className="mt-1 text-xs sm:text-sm text-zinc-600">
+            Core technologies and architectural practices applied across production systems.
           </p>
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {skillCategories.map((cat, idx) => (
             <div
               key={idx}
-              className="rounded-2xl bg-slate-900/60 border border-slate-800 p-6 sm:p-7 flex flex-col justify-between hover:border-slate-700/80 transition duration-300"
+              className="bg-white rounded-2xl border border-zinc-200/90 p-5 shadow-xs flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center gap-2.5 pb-4 border-b border-slate-800 mb-5">
-                  <span className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    <Zap className="w-4 h-4" />
-                  </span>
-                  <h3 className="font-bold text-lg text-white tracking-tight">
+                <div className="flex items-center gap-2 pb-3 border-b border-zinc-100 mb-4">
+                  <Layers className="w-4 h-4 text-zinc-700" />
+                  <h3 className="font-semibold text-sm text-zinc-900">
                     {cat.category}
                   </h3>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {cat.skills.map((skill, sIdx) => (
                     <div
                       key={sIdx}
-                      className={`p-3 rounded-xl border transition-all flex items-center justify-between ${
-                        skill.highlight
-                          ? 'bg-slate-800/80 border-emerald-500/30 text-white shadow-sm'
-                          : 'bg-slate-900/80 border-slate-800/80 text-slate-300'
-                      }`}
+                      className="px-3 py-2 rounded-lg bg-zinc-50/80 border border-zinc-200/60 flex items-center justify-between text-xs"
                     >
-                      <div className="flex items-center gap-2">
-                        <CheckCircle2
-                          className={`w-4 h-4 ${
-                            skill.highlight ? 'text-emerald-400' : 'text-slate-500'
-                          }`}
-                        />
-                        <span className="text-sm font-medium">
-                          {skill.name}
-                        </span>
-                      </div>
-                      <span
-                        className={`text-[11px] font-mono px-2 py-0.5 rounded ${
-                          skill.highlight
-                            ? 'bg-emerald-950/70 text-emerald-300 border border-emerald-800/50'
-                            : 'bg-slate-800 text-slate-400'
-                        }`}
-                      >
+                      <span className="font-medium text-zinc-800">
+                        {skill.name}
+                      </span>
+                      <span className="text-[11px] font-mono text-zinc-500">
                         {skill.level}
                       </span>
                     </div>

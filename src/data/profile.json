@@ -1,21 +1,24 @@
 {
   "name": "Gad",
   "role": "Full-Stack Software Engineer",
-  "status": "Available for High-Impact Projects",
-  "bio": "Building high-performance, resilient web applications and high-conversion e-commerce systems with modern tech stacks, instant load times, and clean architecture.",
-  "subBio": "Specialized in React, Next.js, TypeScript, Node.js, and high-speed database caching. I turn complex commercial requirements into fast, scalable, and intuitive digital products.",
-  "location": "Global / Remote",
-  "experienceYears": "Commercial Experience",
+  "status": "Available for Select Engagements",
+  "bio": "Building fast, reliable web applications and commercial e-commerce systems with clean architecture, sub-second load times, and intuitive design.",
+  "subBio": "Focusing on React, Next.js, TypeScript, Node.js, and high-speed in-memory caching. Practical engineering that drives real commercial results without unnecessary bloat.",
+  "location": "Available Worldwide / Remote",
+  "avatar": "images/profile.png",
+  "cover": "images/cover.png",
+  "experienceYears": "Commercial Delivery",
   "stats": [
-    { "label": "Projects Delivered", "value": "Production-Ready" },
-    { "label": "Architecture Focus", "value": "Performance & GEO" },
-    { "label": "Code Standard", "value": "100% Type-Safe" },
-    { "label": "Load Speeds", "value": "< 1.5s CWV" }
+    { "label": "Engineering Standard", "value": "100% Type-Safe" },
+    { "label": "Database & Caching", "value": "Redis & MongoDB" },
+    { "label": "Deployment", "value": "Vercel & GitHub Actions" },
+    { "label": "Search & SEO", "value": "GEO & JSON-LD" }
   ],
   "socials": {
     "github": "https://github.com/Gad-Developer",
-    "email": "gad.developer.pro@gmail.com",
-    "whatsapp": "https://wa.me/",
-    "telegram": "https://t.me/"
+    "linkedin": "https://www.linkedin.com/in/gad-developer-b279a5367/",
+    "facebook": "https://www.facebook.com/profile.php?id=61590521530367&locale=ar_AR",
+    "instagram": "https://www.instagram.com/gad_developer815/?hl=en",
+    "email": "gad.developer.pro@gmail.com"
   }
 }

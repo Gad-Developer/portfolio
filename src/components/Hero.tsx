@@ -1,76 +1,147 @@
-import { ArrowRight, Code2, Sparkles } from 'lucide-react';
+import { MapPin, ArrowDown } from 'lucide-react';
+import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon } from './icons/SocialIcons';
 import profileData from '../data/profile.json';
 import type { Profile } from '../types';
 
 const profile: Profile = profileData as Profile;
 
 export const Hero = () => {
+  const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28">
-      {/* Background Decorative Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-cyan-500/10 blur-[100px] rounded-full pointer-events-none -z-10" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto space-y-6">
-          {/* Top Pill */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-slate-700/60 shadow-inner">
-            <Sparkles className="w-4 h-4 text-emerald-400" />
-            <span className="text-xs font-mono tracking-wide text-slate-300">
-              High-Velocity Full-Stack Engineering • Production Deployed
-            </span>
+    <section className="pt-6 pb-12 sm:pt-8 sm:pb-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        {/* Profile Card Container */}
+        <div className="bg-white rounded-2xl border border-zinc-200/90 shadow-xs overflow-hidden">
+          {/* Cover Banner */}
+          <div className="relative h-44 sm:h-56 md:h-64 w-full bg-zinc-100 overflow-hidden">
+            <img
+              src={`${baseUrl}${profile.cover}`}
+              alt="Profile Cover"
+              className="w-full h-full object-cover object-center"
+            />
           </div>
 
-          {/* Main Title */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight">
-            Building Fast, Scalable &{' '}
-            <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
-              High-Conversion
-            </span>{' '}
-            Web Platforms.
-          </h1>
-
-          {/* Subtitle / Bio */}
-          <p className="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
-            Specializing in <span className="text-white font-medium">React, Next.js, TypeScript</span>, and{' '}
-            <span className="text-white font-medium">high-speed in-memory caching</span>. Transforming complex
-            commercial requirements into resilient systems with sub-second speeds and flawless user experiences.
-          </p>
-
-          {/* Action CTAs */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all duration-200 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
-            >
-              <span>Explore Featured Projects</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-
-            <a
-              href="#skills"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-sm transition hover:border-slate-600"
-            >
-              <Code2 className="w-4 h-4 text-slate-400" />
-              <span>Technical Matrix</span>
-            </a>
-          </div>
-
-          {/* Quick Metrics Bar */}
-          <div className="pt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto text-left">
-            {profile.stats.map((stat, idx) => (
-              <div
-                key={idx}
-                className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm"
-              >
-                <div className="text-emerald-400 font-bold text-sm sm:text-base font-mono">
-                  {stat.value}
-                </div>
-                <div className="text-slate-400 text-xs mt-1">
-                  {stat.label}
-                </div>
+          {/* Card Body */}
+          <div className="px-5 sm:px-8 pb-7 sm:pb-8 pt-0">
+            {/* Avatar & Availability Row */}
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between -mt-14 sm:-mt-16 mb-5 gap-4">
+              <div className="relative inline-block">
+                <img
+                  src={`${baseUrl}${profile.avatar}`}
+                  alt={profile.name}
+                  className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl object-cover border-4 border-white shadow-md bg-white"
+                />
               </div>
-            ))}
+
+              {/* Status Pill */}
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium self-start sm:self-auto">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>{profile.status}</span>
+              </div>
+            </div>
+
+            {/* Identity & Typography */}
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-baseline gap-2.5">
+                <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight">
+                  {profile.name}
+                </h1>
+                <span className="text-zinc-500 text-base font-normal">
+                  — {profile.role}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2 text-xs text-zinc-500">
+                <MapPin className="w-3.5 h-3.5 text-zinc-400" />
+                <span>{profile.location}</span>
+                <span>•</span>
+                <span>React, Next.js, TypeScript, Node.js, Redis</span>
+              </div>
+
+              {/* Bio Paragraphs */}
+              <p className="text-sm sm:text-base text-zinc-700 leading-relaxed max-w-3xl pt-1">
+                {profile.bio}
+              </p>
+              <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed max-w-3xl">
+                {profile.subBio}
+              </p>
+
+              {/* Social Channels Row */}
+              <div className="flex flex-wrap items-center gap-3 pt-3">
+                {profile.socials.github && (
+                  <a
+                    href={profile.socials.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-xs font-medium transition"
+                  >
+                    <GithubIcon className="w-3.5 h-3.5" />
+                    <span>GitHub</span>
+                  </a>
+                )}
+                {profile.socials.linkedin && (
+                  <a
+                    href={profile.socials.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-xs font-medium transition"
+                  >
+                    <LinkedInIcon className="w-3.5 h-3.5 text-[#0A66C2]" />
+                    <span>LinkedIn</span>
+                  </a>
+                )}
+                {profile.socials.facebook && (
+                  <a
+                    href={profile.socials.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-xs font-medium transition"
+                  >
+                    <FacebookIcon className="w-3.5 h-3.5 text-[#1877F2]" />
+                    <span>Facebook</span>
+                  </a>
+                )}
+                {profile.socials.instagram && (
+                  <a
+                    href={profile.socials.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-xs font-medium transition"
+                  >
+                    <InstagramIcon className="w-3.5 h-3.5 text-[#E4405F]" />
+                    <span>Instagram</span>
+                  </a>
+                )}
+
+                <a
+                  href="#projects"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-medium ml-auto transition"
+                >
+                  <span>View Projects</span>
+                  <ArrowDown className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+
+            {/* Quick Competency Badges Bar */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-6 mt-6 border-t border-zinc-100">
+              {profile.stats.map((stat, idx) => (
+                <div key={idx} className="p-2.5 rounded-lg bg-zinc-50 border border-zinc-200/60">
+                  <div className="text-zinc-900 font-semibold text-xs sm:text-sm">
+                    {stat.value}
+                  </div>
+                  <div className="text-zinc-500 text-[11px] mt-0.5">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

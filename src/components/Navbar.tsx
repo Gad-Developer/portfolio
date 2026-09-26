@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Menu, X, Mail, Terminal } from 'lucide-react';
-import { GithubIcon } from './icons/GithubIcon';
+import { Menu, X, Mail } from 'lucide-react';
+import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon } from './icons/SocialIcons';
 import profileData from '../data/profile.json';
 import type { Profile } from '../types';
 
@@ -9,124 +9,175 @@ const profile: Profile = profileData as Profile;
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const baseUrl = import.meta.env.BASE_URL.endsWith('/')
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/90 backdrop-blur-md">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo / Brand */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-500/20 group-hover:border-emerald-500/50 transition">
-              <Terminal className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="font-bold text-lg tracking-tight text-white group-hover:text-emerald-400 transition">
+          <a href="#" className="flex items-center gap-2.5 group">
+            <img
+              src={`${baseUrl}${profile.avatar}`}
+              alt={profile.name}
+              className="w-8 h-8 rounded-full object-cover border border-zinc-200"
+            />
+            <div className="flex items-center gap-1.5">
+              <span className="font-semibold text-base tracking-tight text-zinc-900 group-hover:text-zinc-700 transition">
                 {profile.name}
               </span>
-              <span className="text-xs text-emerald-400 font-mono ml-1.5 px-1.5 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/50">
-                PRO
-              </span>
+              <span className="text-zinc-400 text-sm font-normal">/</span>
+              <span className="text-xs text-zinc-600 font-normal">Engineer</span>
             </div>
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            <a href="#projects" className="hover:text-emerald-400 transition-colors">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-600">
+            <a href="#projects" className="hover:text-zinc-900 transition-colors">
               Projects
             </a>
-            <a href="#skills" className="hover:text-emerald-400 transition-colors">
-              Technical Stack
+            <a href="#skills" className="hover:text-zinc-900 transition-colors">
+              Stack
             </a>
-            <a href="#about" className="hover:text-emerald-400 transition-colors">
-              Philosophy
+            <a href="#about" className="hover:text-zinc-900 transition-colors">
+              About
             </a>
-            <a href="#contact" className="hover:text-emerald-400 transition-colors">
+            <a href="#contact" className="hover:text-zinc-900 transition-colors">
               Contact
             </a>
           </nav>
 
-          {/* Availability Status & Socials */}
-          <div className="hidden sm:flex items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>Available for Hire</span>
-            </div>
-
+          {/* Social Icons & Email Button */}
+          <div className="hidden sm:flex items-center gap-3">
             {profile.socials.github && (
               <a
                 href={profile.socials.github}
                 target="_blank"
                 rel="noreferrer"
-                className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition"
-                title="GitHub Profile"
+                className="p-1.5 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 rounded-md transition"
+                title="GitHub"
               >
-                <GithubIcon className="w-5 h-5" />
+                <GithubIcon className="w-4 h-4" />
               </a>
             )}
+            {profile.socials.linkedin && (
+              <a
+                href={profile.socials.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="p-1.5 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 rounded-md transition"
+                title="LinkedIn"
+              >
+                <LinkedInIcon className="w-4 h-4" />
+              </a>
+            )}
+            {profile.socials.facebook && (
+              <a
+                href={profile.socials.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="p-1.5 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 rounded-md transition"
+                title="Facebook"
+              >
+                <FacebookIcon className="w-4 h-4" />
+              </a>
+            )}
+            {profile.socials.instagram && (
+              <a
+                href={profile.socials.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="p-1.5 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 rounded-md transition"
+                title="Instagram"
+              >
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+            )}
+
+            <div className="h-4 w-px bg-zinc-200 mx-1" />
+
             <a
               href={`mailto:${profile.socials.email}`}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold text-xs transition shadow-sm shadow-emerald-500/20"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-medium text-xs transition"
             >
               <Mail className="w-3.5 h-3.5" />
-              <span>Let's Talk</span>
+              <span>Contact</span>
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu toggle */}
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800"
+              className="p-1.5 rounded-lg text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile menu dropdown */}
+      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-slate-800 bg-slate-950/95 px-4 pt-2 pb-6 space-y-3">
+        <div className="md:hidden border-b border-zinc-200 bg-white px-4 pt-3 pb-5 space-y-2">
           <a
             href="#projects"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            className="block px-3 py-2 rounded-md text-sm font-medium text-zinc-700 hover:bg-zinc-100"
           >
             Projects
           </a>
           <a
             href="#skills"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            className="block px-3 py-2 rounded-md text-sm font-medium text-zinc-700 hover:bg-zinc-100"
           >
             Technical Stack
           </a>
           <a
             href="#about"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            className="block px-3 py-2 rounded-md text-sm font-medium text-zinc-700 hover:bg-zinc-100"
           >
-            Philosophy
+            About
           </a>
           <a
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-emerald-400"
+            className="block px-3 py-2 rounded-md text-sm font-medium text-zinc-700 hover:bg-zinc-100"
           >
             Contact
           </a>
 
-          <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs text-emerald-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
-              <span>Available for Hire</span>
+          <div className="pt-3 border-t border-zinc-200 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              {profile.socials.github && (
+                <a href={profile.socials.github} target="_blank" rel="noreferrer" className="text-zinc-600 p-1">
+                  <GithubIcon className="w-4 h-4" />
+                </a>
+              )}
+              {profile.socials.linkedin && (
+                <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="text-zinc-600 p-1">
+                  <LinkedInIcon className="w-4 h-4" />
+                </a>
+              )}
+              {profile.socials.facebook && (
+                <a href={profile.socials.facebook} target="_blank" rel="noreferrer" className="text-zinc-600 p-1">
+                  <FacebookIcon className="w-4 h-4" />
+                </a>
+              )}
+              {profile.socials.instagram && (
+                <a href={profile.socials.instagram} target="_blank" rel="noreferrer" className="text-zinc-600 p-1">
+                  <InstagramIcon className="w-4 h-4" />
+                </a>
+              )}
             </div>
             <a
               href={`mailto:${profile.socials.email}`}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-semibold text-xs"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 text-white font-medium text-xs"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>Contact</span>

@@ -1,4 +1,4 @@
-import { ArrowUp, Terminal } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import profileData from '../data/profile.json';
 
 export const Footer = () => {
@@ -7,37 +7,33 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-slate-900 bg-slate-950 py-12 text-slate-400 text-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-          {/* Brand info */}
-          <div className="flex items-center gap-2">
-            <span className="p-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              <Terminal className="w-3.5 h-3.5" />
+    <footer className="border-t border-zinc-200 bg-white py-8 text-zinc-500 text-xs">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-zinc-700">
+            <span className="font-semibold">{profileData.name}</span>
+            <span>•</span>
+            <span className="text-zinc-500">Full-Stack Software Engineer</span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <span className="text-zinc-400 text-[11px]">
+              Built with React, TypeScript & Tailwind CSS
             </span>
-            <span className="font-semibold text-white">{profileData.name}</span>
-            <span>• Full-Stack Portfolio</span>
+            <button
+              type="button"
+              onClick={scrollToTop}
+              className="inline-flex items-center gap-1 text-zinc-600 hover:text-zinc-900 transition cursor-pointer"
+              aria-label="Back to top"
+            >
+              <span>Back to top</span>
+              <ArrowUp className="w-3 h-3" />
+            </button>
           </div>
-
-          {/* Architecture Badge */}
-          <div className="text-center sm:text-left text-slate-400 font-mono text-[11px]">
-            Static Architecture • React 19 + TypeScript + Tailwind CSS • GitHub Pages Deployed
-          </div>
-
-          {/* Back to top */}
-          <button
-            type="button"
-            onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition cursor-pointer"
-            aria-label="Back to top"
-          >
-            <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </button>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-slate-900 text-center text-slate-400 text-[11px]">
-          © {new Date().getFullYear()} {profileData.name}. All client trademarks and brand names belong to their respective owners.
+        <div className="mt-4 pt-4 border-t border-zinc-100 text-center sm:text-left text-zinc-400 text-[11px]">
+          © {new Date().getFullYear()} {profileData.name}. All trademarks and client assets belong to their respective owners.
         </div>
       </div>
     </footer>

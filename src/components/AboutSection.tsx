@@ -1,83 +1,64 @@
-import { ShieldCheck, Gauge, Layers, Terminal, Sparkles, CheckCheck } from 'lucide-react';
+import { ShieldCheck, Gauge, Layers, Terminal } from 'lucide-react';
 
 export const AboutSection = () => {
   const principles = [
     {
-      icon: <Gauge className="w-5 h-5 text-emerald-400" />,
-      title: "Performance & Sub-Second Latency",
+      icon: <Gauge className="w-4 h-4 text-zinc-800" />,
+      title: "Sub-Second Latency & Caching",
       description:
-        "Every millisecond of latency costs conversions. I implement in-memory caching (Upstash Redis), aggressive asset compression (80%+ reductions), and optimized database queries to guarantee instant responsiveness."
+        "Implementing Upstash Redis in-memory layers, query optimization, and asset compression (80%+ reductions) to eliminate lag and maximize user retention."
     },
     {
-      icon: <ShieldCheck className="w-5 h-5 text-teal-400" />,
-      title: "Commercial-Grade Reliability & Security",
+      icon: <ShieldCheck className="w-4 h-4 text-zinc-800" />,
+      title: "Commercial-Grade Reliability",
       description:
-        "Enterprise authentication via secure HttpOnly session cookies, robust input validation, and strict client confidentiality. Built to handle production traffic spikes without degradation."
+        "Building with secure HttpOnly cookie sessions, rigorous schema validations, and zero server crashes during traffic spikes."
     },
     {
-      icon: <Layers className="w-5 h-5 text-cyan-400" />,
-      title: "Generative Engine Optimization (GEO)",
+      icon: <Layers className="w-4 h-4 text-zinc-800" />,
+      title: "AI Search Optimization (GEO)",
       description:
-        "Beyond traditional SEO: structuring rich JSON-LD entities (OnlineStore, Product, FAQPage) so your platform is indexed and accurately cited by modern AI search models (ChatGPT, Perplexity, Gemini, Google AI)."
+        "Structuring bilingual JSON-LD entities (OnlineStore, Product, FAQPage) so client platforms are directly discovered and cited by ChatGPT, Perplexity, and Google AI."
     },
     {
-      icon: <Terminal className="w-5 h-5 text-emerald-400" />,
-      title: "100% Type Safety & Maintainable Code",
+      icon: <Terminal className="w-4 h-4 text-zinc-800" />,
+      title: "Type Safety & Clean Boundaries",
       description:
-        "Strict TypeScript types, modular component hierarchies, and clean domain boundaries. Codebases are designed so any engineer can step in and scale them effortlessly."
+        "Strict TypeScript types and decoupled architectures that keep codebases predictable, testable, and effortless to extend."
     }
   ];
 
   return (
-    <section id="about" className="py-16 sm:py-24 border-t border-slate-900 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Column: Narrative */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Engineering Philosophy</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-              Software Engineered for Measurable Business Impact.
+    <section id="about" className="py-10 sm:py-14 border-t border-zinc-200/80">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column */}
+          <div className="lg:col-span-5 space-y-3">
+            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight">
+              Engineering Approach & Delivery
             </h2>
-
-            <p className="text-slate-300 text-base leading-relaxed">
-              I don't build generic boilerplate templates or over-engineered toys. I build commercial web applications designed to solve real operational bottlenecks, accelerate sales velocity, and deliver bulletproof user experiences.
+            <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+              I focus on building commercial software that solves real operational bottlenecks, reduces server cost, and delivers responsive user experiences.
             </p>
-
-            <p className="text-slate-400 text-sm leading-relaxed">
-              Whether architecting a high-speed sports nutrition e-commerce platform with bilingual AI search discovery or building fluid interactive stores with hundreds of SKUs, my focus remains strictly on speed, security, and conversion.
+            <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed">
+              Every system is engineered from day one with type safety, clean data layers, and fast deployment pipelines.
             </p>
-
-            <div className="pt-2 flex items-center gap-4 text-xs font-mono text-emerald-400">
-              <span className="flex items-center gap-1.5">
-                <CheckCheck className="w-4 h-4" /> Production Tested
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCheck className="w-4 h-4" /> Zero Bloat
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCheck className="w-4 h-4" /> Rapid Delivery
-              </span>
-            </div>
           </div>
 
-          {/* Right Column: Principles Grid */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {/* Right Column: 4 Principle Cards */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {principles.map((p, idx) => (
               <div
                 key={idx}
-                className="p-5 sm:p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition space-y-3"
+                className="bg-white rounded-xl border border-zinc-200/90 p-4 shadow-xs space-y-2"
               >
-                <div className="p-2.5 rounded-xl bg-slate-800/80 inline-block border border-slate-700/60">
+                <div className="p-1.5 rounded-md bg-zinc-100 w-fit text-zinc-800">
                   {p.icon}
                 </div>
-                <h3 className="font-bold text-base text-white">
+                <h3 className="font-semibold text-xs sm:text-sm text-zinc-900">
                   {p.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                <p className="text-xs text-zinc-600 leading-relaxed">
                   {p.description}
                 </p>
               </div>

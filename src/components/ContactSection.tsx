@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Mail, Copy, Check, MessageSquare, Send, ArrowUpRight } from 'lucide-react';
-import { GithubIcon } from './icons/GithubIcon';
+import { Mail, Copy, Check, ArrowUpRight } from 'lucide-react';
+import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon } from './icons/SocialIcons';
 import profileData from '../data/profile.json';
 import type { Profile } from '../types';
 
@@ -16,94 +16,102 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-28 border-t border-slate-900 relative overflow-hidden">
-      {/* Background radial glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-emerald-500/10 blur-[140px] rounded-full pointer-events-none -z-10" />
+    <section id="contact" className="py-12 sm:py-16 border-t border-zinc-200/80">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="bg-white rounded-2xl border border-zinc-200/90 p-6 sm:p-10 shadow-xs text-center space-y-6 max-w-3xl mx-auto">
+          <div className="space-y-2">
+            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight">
+              Get in Touch
+            </h2>
+            <p className="text-xs sm:text-sm text-zinc-600 max-w-xl mx-auto leading-relaxed">
+              Available for full-stack engineering contracts, commercial web application development,
+              and performance consulting.
+            </p>
+          </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
-          <Send className="w-3.5 h-3.5" />
-          <span>Initiate Communication</span>
-        </div>
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <a
+              href={`mailto:${profile.socials.email}`}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-white font-medium text-xs transition shadow-xs"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              <span>Send Direct Email</span>
+            </a>
 
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          Have a Project in Mind? Let’s Build Something Exceptional.
-        </h2>
+            <button
+              type="button"
+              onClick={handleCopyEmail}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-medium text-xs transition cursor-pointer"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-600" />
+                  <span className="text-emerald-700">Copied to Clipboard</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5 text-zinc-500" />
+                  <span>Copy: {profile.socials.email}</span>
+                </>
+              )}
+            </button>
+          </div>
 
-        <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          Whether you need a high-speed commercial web application, an e-commerce platform revamp,
-          or full-stack technical consulting, I am currently available for select high-impact engagements.
-        </p>
-
-        {/* Primary Contact Bar */}
-        <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
-          <a
-            href={`mailto:${profile.socials.email}`}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all shadow-xl shadow-emerald-500/25 hover:-translate-y-0.5"
-          >
-            <Mail className="w-4 h-4" />
-            <span>Send Direct Email</span>
-          </a>
-
-          <button
-            type="button"
-            onClick={handleCopyEmail}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-sm transition cursor-pointer"
-          >
-            {copied ? (
-              <>
-                <Check className="w-4 h-4 text-emerald-400" />
-                <span className="text-emerald-300">Copied to Clipboard!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4 text-slate-400" />
-                <span>Copy Address</span>
-              </>
+          {/* Social Links Bar */}
+          <div className="pt-4 border-t border-zinc-100 flex flex-wrap items-center justify-center gap-4 text-xs text-zinc-600">
+            {profile.socials.github && (
+              <a
+                href={profile.socials.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 hover:text-zinc-900 transition"
+              >
+                <GithubIcon className="w-3.5 h-3.5" />
+                <span>GitHub</span>
+                <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+              </a>
             )}
-          </button>
-        </div>
 
-        {/* Quick Social Badges */}
-        <div className="pt-8 flex flex-wrap items-center justify-center gap-4 text-xs">
-          {profile.socials.github && (
-            <a
-              href={profile.socials.github}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 transition"
-            >
-              <GithubIcon className="w-4 h-4" />
-              <span>GitHub Profile</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-slate-500" />
-            </a>
-          )}
+            {profile.socials.linkedin && (
+              <a
+                href={profile.socials.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 hover:text-zinc-900 transition"
+              >
+                <LinkedInIcon className="w-3.5 h-3.5 text-[#0A66C2]" />
+                <span>LinkedIn</span>
+                <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+              </a>
+            )}
 
-          {profile.socials.whatsapp && (
-            <a
-              href={profile.socials.whatsapp}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-emerald-400 hover:border-slate-700 transition"
-            >
-              <MessageSquare className="w-4 h-4 text-emerald-400" />
-              <span>Direct WhatsApp</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-slate-500" />
-            </a>
-          )}
+            {profile.socials.facebook && (
+              <a
+                href={profile.socials.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 hover:text-zinc-900 transition"
+              >
+                <FacebookIcon className="w-3.5 h-3.5 text-[#1877F2]" />
+                <span>Facebook</span>
+                <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+              </a>
+            )}
 
-          {profile.socials.telegram && (
-            <a
-              href={profile.socials.telegram}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-slate-700 transition"
-            >
-              <Send className="w-4 h-4 text-cyan-400" />
-              <span>Telegram Chat</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-slate-500" />
-            </a>
-          )}
+            {profile.socials.instagram && (
+              <a
+                href={profile.socials.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 hover:text-zinc-900 transition"
+              >
+                <InstagramIcon className="w-3.5 h-3.5 text-[#E4405F]" />
+                <span>Instagram</span>
+                <ArrowUpRight className="w-3 h-3 text-zinc-400" />
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </section>
