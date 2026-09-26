@@ -2,7 +2,7 @@
   {
     "id": "muscle-gate-supplements",
     "title": "Muscle Gate — Sports Nutrition & Supplements Platform",
-    "tagline": "Full-stack commercial e-commerce engineered for sports nutrition with multi-attribute filtering, Upstash Redis caching, and bilingual search architecture.",
+    "tagline": "Full-stack commercial e-commerce built for sports nutrition with multi-attribute filtering, Upstash Redis caching, and bilingual search architecture.",
     "category": "Full-Stack",
     "featured": true,
     "completedDate": "2026-09",
@@ -14,13 +14,13 @@
       "Upstash Redis",
       "Zustand"
     ],
-    "description": "A commercial web platform built for sports nutrition and athletes. Engineered for performance with dynamic attribute filtering, in-memory caching to eliminate catalog latency, Zustand cart persistence, and automated customer order dispatch.",
+    "description": "A commercial web platform built for sports nutrition and athletes. Optimized for performance with dynamic attribute filtering, in-memory caching to eliminate catalog latency, and persistent shopping cart.",
     "keyFeatures": [
       "Dynamic multi-attribute catalog filtering (Brand, Category, Price, Goals) with instant UI state updates",
       "In-memory caching layer via Upstash Redis providing ultra-fast sub-millisecond responses",
       "Resilient shopping cart state management with Zustand for seamless persistence",
-      "Automated order dispatch pipelines integrated with Telegram Bot and WhatsApp APIs",
-      "Structured bilingual JSON-LD Schema (OnlineStore, Product, FAQPage) engineered for search discovery"
+      "Direct customer checkout and order notification flow with WhatsApp messaging integration",
+      "Structured bilingual JSON-LD Schema (OnlineStore, Product, FAQPage) optimized for search discovery"
     ],
     "metrics": [
       "Sub-millisecond Redis Cache",

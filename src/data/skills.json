@@ -18,7 +18,7 @@
       { "name": "Redis In-Memory Caching", "level": "Advanced", "highlight": true },
       { "name": "REST APIs & Webhooks", "level": "Advanced" },
       { "name": "Authentication (JWT & Cookies)", "level": "Advanced" },
-      { "name": "Telegram & WhatsApp Bot Automations", "level": "Specialized" }
+      { "name": "Database Modeling & API Architecture", "level": "Advanced" }
     ]
   },
   {
