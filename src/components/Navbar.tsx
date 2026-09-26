@@ -19,29 +19,23 @@ export const Navbar = () => {
     : `${import.meta.env.BASE_URL}/`;
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-slate-300 bg-white/95 backdrop-blur-md shadow-xs">
+    <header className="sticky top-0 z-40 w-full border-b border-slate-300 bg-white/95 backdrop-blur-md">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo / Brand */}
+          {/* Brand */}
           <a href="#" className="flex items-center gap-2.5 group">
             <img
               src={`${baseUrl}${profile.avatar}`}
               alt={profile.name}
-              className="w-9 h-9 rounded-full object-cover border-2 border-slate-300 shadow-xs"
+              className="w-8 h-8 rounded-full object-cover border border-slate-300 shadow-2xs"
             />
-            <div className="flex items-center gap-2">
-              <span className="font-black text-lg tracking-tight text-slate-950 group-hover:text-slate-700 transition">
-                {profile.name}
-              </span>
-              <span className="text-slate-400 font-bold">/</span>
-              <span className="text-xs sm:text-sm font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-300">
-                {t.developer}
-              </span>
-            </div>
+            <span className="font-black text-lg tracking-tight text-slate-950 group-hover:text-slate-700 transition">
+              {profile.name}
+            </span>
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-2 text-sm sm:text-base font-bold text-slate-800">
+          <nav className="hidden md:flex items-center gap-1.5 lg:gap-3 text-sm font-bold text-slate-700">
             <a href="#projects" className="px-3 py-1.5 rounded-lg hover:text-slate-950 hover:bg-slate-100 transition">
               {t.projects}
             </a>
@@ -56,75 +50,24 @@ export const Navbar = () => {
             </a>
           </nav>
 
-          {/* Desktop Actions: Language Toggle, Socials, WhatsApp */}
-          <div className="hidden sm:flex items-center gap-2">
-            {/* Language Switcher Buttons */}
+          {/* Desktop Right Actions: Language Toggle & Compact WhatsApp CTA */}
+          <div className="hidden sm:flex items-center gap-2.5">
             <LanguageToggle />
 
-            <div className="h-5 w-px bg-slate-300 mx-1" />
-
-            {profile.socials.github && (
-              <a
-                href={profile.socials.github}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2 text-slate-700 hover:text-slate-950 hover:bg-slate-100 rounded-lg transition"
-                title="GitHub"
-              >
-                <GithubIcon className="w-4 h-4" />
-              </a>
-            )}
-            {profile.socials.linkedin && (
-              <a
-                href={profile.socials.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2 text-slate-700 hover:text-slate-950 hover:bg-slate-100 rounded-lg transition"
-                title="LinkedIn"
-              >
-                <LinkedInIcon className="w-4 h-4 text-[#0A66C2]" />
-              </a>
-            )}
-            {profile.socials.facebook && (
-              <a
-                href={profile.socials.facebook}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2 text-slate-700 hover:text-slate-950 hover:bg-slate-100 rounded-lg transition"
-                title="Facebook"
-              >
-                <FacebookIcon className="w-4 h-4 text-[#1877F2]" />
-              </a>
-            )}
-            {profile.socials.instagram && (
-              <a
-                href={profile.socials.instagram}
-                target="_blank"
-                rel="noreferrer"
-                className="p-2 text-slate-700 hover:text-slate-950 hover:bg-slate-100 rounded-lg transition"
-                title="Instagram"
-              >
-                <InstagramIcon className="w-4 h-4 text-[#E4405F]" />
-              </a>
-            )}
-
-            <div className="h-5 w-px bg-slate-300 mx-1" />
-
-            {/* Primary WhatsApp Redirect Button */}
             <a
               href={profile.socials.whatsapp}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs sm:text-sm transition shadow-xs"
-              title="Open WhatsApp Direct Chat"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-xs sm:text-sm transition shadow-2xs"
+              title={`WhatsApp: ${profile.socials.whatsappDisplay}`}
             >
-              <WhatsAppIcon className="w-4 h-4" />
-              <span>{t.whatsapp}: {profile.socials.whatsappDisplay}</span>
-              <ArrowUpRight className="w-3 h-3 text-emerald-100" />
+              <WhatsAppIcon className="w-4 h-4 text-white" />
+              <span>{t.whatsapp}</span>
+              <ArrowUpRight className="w-3 h-3 text-emerald-200" />
             </a>
           </div>
 
-          {/* Mobile Actions: Language toggle & Hamburger */}
+          {/* Mobile Right: Language Toggle & Hamburger */}
           <div className="flex sm:hidden items-center gap-2">
             <LanguageToggle />
             <button
@@ -171,26 +114,51 @@ export const Navbar = () => {
           </a>
 
           <div className="pt-3 border-t border-slate-200 flex flex-col gap-3">
+            {/* Socials inside mobile drawer */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {profile.socials.github && (
-                  <a href={profile.socials.github} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
+                  <a
+                    href={profile.socials.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-slate-700 hover:text-slate-950 p-1.5"
+                    title="GitHub"
+                  >
                     <GithubIcon className="w-4 h-4" />
                   </a>
                 )}
                 {profile.socials.linkedin && (
-                  <a href={profile.socials.linkedin} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
-                    <LinkedInIcon className="w-4 h-4" />
+                  <a
+                    href={profile.socials.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-slate-700 hover:text-slate-950 p-1.5"
+                    title="LinkedIn"
+                  >
+                    <LinkedInIcon className="w-4 h-4 text-[#0A66C2]" />
                   </a>
                 )}
                 {profile.socials.facebook && (
-                  <a href={profile.socials.facebook} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
-                    <FacebookIcon className="w-4 h-4" />
+                  <a
+                    href={profile.socials.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-slate-700 hover:text-slate-950 p-1.5"
+                    title="Facebook"
+                  >
+                    <FacebookIcon className="w-4 h-4 text-[#1877F2]" />
                   </a>
                 )}
                 {profile.socials.instagram && (
-                  <a href={profile.socials.instagram} target="_blank" rel="noreferrer" className="text-slate-700 p-1.5">
-                    <InstagramIcon className="w-4 h-4" />
+                  <a
+                    href={profile.socials.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-slate-700 hover:text-slate-950 p-1.5"
+                    title="Instagram"
+                  >
+                    <InstagramIcon className="w-4 h-4 text-[#E4405F]" />
                   </a>
                 )}
               </div>
@@ -200,7 +168,7 @@ export const Navbar = () => {
               href={profile.socials.whatsapp}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 text-white font-black text-sm"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-black text-sm transition"
             >
               <WhatsAppIcon className="w-4 h-4" />
               <span>{t.whatsapp}: {profile.socials.whatsappDisplay} ↗</span>
