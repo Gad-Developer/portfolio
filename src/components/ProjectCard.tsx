@@ -31,7 +31,13 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
       {/* Thumbnail Container */}
       {thumbnailSrc && (
         <div
-          onClick={() => onOpenVideo(project)}
+          onClick={() => {
+            if (project.media?.videoWalkthrough) {
+              onOpenVideo(project);
+            } else {
+              window.open(project.liveUrl, '_blank');
+            }
+          }}
           className="relative aspect-video w-full bg-slate-200 overflow-hidden cursor-pointer group"
         >
           <img
@@ -40,12 +46,19 @@ export const ProjectCard = ({ project, onOpenVideo }: ProjectCardProps) => {
             className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
           />
 
-          {/* Dark Overlay On Hover with Play Button */}
+          {/* Overlay On Hover */}
           <div className="absolute inset-0 bg-slate-950/25 group-hover:bg-slate-950/45 transition-colors flex items-center justify-center">
-            <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white text-slate-900 text-sm font-extrabold shadow-lg group-hover:scale-105 transition-transform">
-              <Play className="w-4 h-4 fill-slate-900 text-slate-900" />
-              <span>{t.watchVideo}</span>
-            </div>
+            {project.media?.videoWalkthrough ? (
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white text-slate-900 text-sm font-extrabold shadow-lg group-hover:scale-105 transition-transform">
+                <Play className="w-4 h-4 fill-slate-900 text-slate-900" />
+                <span>{t.watchVideo}</span>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white text-slate-900 text-sm font-extrabold shadow-lg group-hover:scale-105 transition-transform">
+                <ExternalLink className="w-4 h-4 text-slate-900" />
+                <span>{t.visitLive}</span>
+              </div>
+            )}
           </div>
 
           {/* Category Tag */}

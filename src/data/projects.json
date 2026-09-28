@@ -1,5 +1,39 @@
 [
   {
+    "id": "roastique-roastery",
+    "title": "Roastique — Gourmet Roastery & 3D Confectionery",
+    "tagline": "Artisanal roastery e-commerce featuring an interactive 360° 3D custom gift box builder, Dubai kunafa chocolate catalog, and instant WhatsApp ordering.",
+    "category": "E-Commerce",
+    "featured": true,
+    "completedDate": "2026-09",
+    "techStack": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "3D Interactive",
+      "Zustand",
+      "WhatsApp API"
+    ],
+    "description": "A luxury confectionery and artisan roastery platform built for premium nuts, freeze-dried fruits, specialty coffee, and Dubai chocolate. Features an interactive 360° 3D gift box customizer allowing customers to build, preview, and personalize partitioned gift sets with custom greeting cards and wax-sealed ribbons.",
+    "keyFeatures": [
+      "Custom 360° 3D interactive gift box studio with multi-partition selection, lid controls, and real-time live preview",
+      "Gourmet product catalog spanning artisanal stone-roasted nuts, freeze-dried berries, and Dubai pistachio kunafa bars",
+      "Persistent Zustand shopping cart with instant weight/quantity adjustments and smooth subtotal recalculations",
+      "Direct customer checkout flow with automated WhatsApp order dispatch and personalized gift messaging",
+      "Optimized Next.js App Router performance with sub-second page transitions and responsive bilingual support"
+    ],
+    "metrics": [
+      "360° 3D Gift Box Studio",
+      "Bilingual EN / AR",
+      "Direct WhatsApp Checkout"
+    ],
+    "liveUrl": "https://nuts-sweets.vercel.app/",
+    "media": {
+      "thumbnail": "images/roastique-thumb.jpg",
+      "videoAspectRatio": "16/9"
+    }
+  },
+  {
     "id": "muscle-gate-supplements",
     "title": "Muscle Gate — Sports Nutrition & Supplements Platform",
     "tagline": "Full-stack commercial e-commerce built for sports nutrition with multi-attribute filtering, Upstash Redis caching, and bilingual search architecture.",

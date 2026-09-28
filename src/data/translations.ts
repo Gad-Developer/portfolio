@@ -35,6 +35,23 @@ export const translations = {
       techStackTitle: "Tech Stack",
       highlightsTitle: "Performance Highlights",
       items: {
+        "roastique-roastery": {
+          title: "Roastique — Gourmet Roastery & 3D Confectionery",
+          tagline: "Artisanal roastery e-commerce featuring an interactive 360° 3D custom gift box builder, Dubai kunafa chocolate catalog, and instant WhatsApp ordering.",
+          description: "A luxury confectionery and artisan roastery platform built for premium nuts, freeze-dried fruits, specialty coffee, and Dubai chocolate. Features an interactive 360° 3D gift box customizer allowing customers to build, preview, and personalize partitioned gift sets with custom greeting cards and wax-sealed ribbons.",
+          keyFeatures: [
+            "Custom 360° 3D interactive gift box studio with multi-partition selection, lid controls, and real-time live preview",
+            "Gourmet product catalog spanning artisanal stone-roasted nuts, freeze-dried berries, and Dubai pistachio kunafa bars",
+            "Persistent Zustand shopping cart with instant weight/quantity adjustments and smooth subtotal recalculations",
+            "Direct customer checkout flow with automated WhatsApp order dispatch and personalized gift messaging",
+            "Optimized Next.js App Router performance with sub-second page transitions and responsive bilingual support",
+          ],
+          metrics: [
+            "360° 3D Gift Box Studio",
+            "Bilingual EN / AR",
+            "Direct WhatsApp Checkout",
+          ],
+        },
         "muscle-gate-supplements": {
           title: "Muscle Gate — Sports Nutrition & Supplements Platform",
           tagline: "Full-stack commercial e-commerce built for sports nutrition with multi-attribute filtering, Upstash Redis caching, and bilingual search architecture.",
@@ -172,6 +189,23 @@ export const translations = {
       techStackTitle: "التقنيات المستخدمة",
       highlightsTitle: "مؤشرات الأداء",
       items: {
+        "roastique-roastery": {
+          title: "محمصة روستيك (Roastique) — مكسرات فاخرة وتسالي وبوكسات ثلاثية الأبعاد",
+          tagline: "متجر إلكتروني تجاري فاخر للمكسرات والحلويات يضم استوديو تفاعلي ثلاثي الأبعاد 360° لتصميم بوكسات الهدايا، وشيكولاتة دبي، وطلب فوري عبر واتساب.",
+          description: "منصة تجارة إلكترونية فاخرة لمحمصة متخصصة في المكسرات النخب الأول، الفواكه المجففة بالتبريد، والبن التخصصي، وشوكولاتة دبي. تتميز باستوديو تفاعلي 360 درجة لتصميم وتخصيص علب الهدايا المقسمة مع بطاقات إهداء مخصصة وأشرطة بختم الشمع.",
+          keyFeatures: [
+            "استوديو تفاعلي 360° ثلاثي الأبعاد لتصميم وتخصيص بوكسات الهدايا متعددة الأقسام مع تحكم في الغطاء ومعاينة حية",
+            "كتالوج منتجات فاخر يضم مكسرات محمصة على الحجر، فواكه مجففة بالتجميد، وبارات كنافة فستق دبي التريند",
+            "سلة تسوق ذكية ومستمرة عبر Zustand مع تبديل الأوزان والكميات وحساب فوري للإجمالي",
+            "إتمام طلب مباشر وميسر مع إرسال تفاصيل الفاتورة وكارت الإهداء فورياً عبر واتساب",
+            "أداء فائق عبر Next.js App Router مع تنقلات فائقة السرعة ودعم كامل للغتين العربية والإنجليزية",
+          ],
+          metrics: [
+            "استوديو بوكسات 3D تفاعلي 360°",
+            "ثنائي اللغة بالكامل عربي / إنجليزي",
+            "طلب ومحادثة فورية عبر واتساب",
+          ],
+        },
         "muscle-gate-supplements": {
           title: "بوابة العضلات (Muscle Gate) — منصة المكملات الغذائية الرياضية",
           tagline: "متجر إلكتروني تجاري متكامل للمكملات الغذائية مع تصفية متعددة الخصائص، كاش سريع عبر Redis، وبنية بحث ثنائية اللغة.",
