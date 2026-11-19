@@ -11,6 +11,7 @@ export interface Project {
   category: "Full-Stack" | "Frontend" | "E-Commerce" | "Mobile";
   featured: boolean;
   completedDate: string;
+  mainTech?: string[];
   techStack: string[];
   description: string;
   keyFeatures: string[];

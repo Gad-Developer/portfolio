@@ -28,7 +28,7 @@ export const ContactSection = () => {
 
   return (
     <section id="contact" className="py-12 sm:py-16 border-t border-slate-300">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="w-[90%] mx-auto">
         <div className="bg-white rounded-3xl border border-slate-300 p-8 sm:p-12 shadow-sm space-y-8 max-w-3xl mx-auto">
           {/* Section Header */}
           <div className="text-center space-y-2">

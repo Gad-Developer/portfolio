@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { ProjectCard } from './ProjectCard';
-import { VideoModal } from './VideoModal';
+import { ProjectDetailsModal } from './ProjectDetailsModal';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import projectsData from '../data/projects.json';
@@ -10,7 +10,7 @@ const allProjects: Project[] = projectsData as Project[];
 
 export const ProjectsSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [activeVideoProject, setActiveVideoProject] = useState<Project | null>(null);
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
   const { language } = useLanguage();
   const t = translations[language].projects;
 
@@ -25,7 +25,7 @@ export const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-12 sm:py-16 border-t border-slate-300">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="w-[90%] mx-auto">
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
@@ -57,21 +57,21 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="flex flex-col">
           {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}
               project={project}
-              onOpenVideo={(p) => setActiveVideoProject(p)}
+              onOpenDetails={(p) => setActiveProject(p)}
             />
           ))}
         </div>
       </div>
 
-      {/* Video Modal Player */}
-      <VideoModal
-        project={activeVideoProject}
-        onClose={() => setActiveVideoProject(null)}
+      {/* Project details popup */}
+      <ProjectDetailsModal
+        project={activeProject}
+        onClose={() => setActiveProject(null)}
       />
     </section>
   );

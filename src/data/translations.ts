@@ -30,13 +30,22 @@ export const translations = {
       sectionSubtitle: "Live production websites built for performance, reliability, and smooth user flow.",
       allCategory: "All",
       watchVideo: "Watch Walkthrough",
-      visitLive: "Visit Live Store",
+      visitLive: "Visit Live Site",
+      showMore: "Show more",
+      overviewTitle: "Overview",
       keyFeaturesTitle: "Key Features",
       techStackTitle: "Tech Stack",
       highlightsTitle: "Performance Highlights",
       items: {
         "roastique-roastery": {
           title: "Roastique — Gourmet Roastery & 3D Confectionery",
+          type: "E-Commerce Store",
+          highlights: [
+            "Interactive 360° 3D gift box builder",
+            "Bilingual EN / AR storefront",
+            "One-click WhatsApp order",
+            "Persistent cart with instant totals",
+          ],
           tagline: "Artisanal roastery e-commerce featuring an interactive 360° 3D custom gift box builder, Dubai kunafa chocolate catalog, and instant WhatsApp ordering.",
           description: "A luxury confectionery and artisan roastery platform built for premium nuts, freeze-dried fruits, specialty coffee, and Dubai chocolate. Features an interactive 360° 3D gift box customizer allowing customers to build, preview, and personalize partitioned gift sets with custom greeting cards and wax-sealed ribbons.",
           keyFeatures: [
@@ -54,6 +63,13 @@ export const translations = {
         },
         "muscle-gate-supplements": {
           title: "Muscle Gate — Sports Nutrition & Supplements Platform",
+          type: "Full-Stack E-Commerce Platform",
+          highlights: [
+            "Enhanced multi-attribute filtering",
+            "Sub-millisecond Redis caching",
+            "Bilingual EN / AR with JSON-LD SEO",
+            "One-click WhatsApp order",
+          ],
           tagline: "Full-stack commercial e-commerce built for sports nutrition with multi-attribute filtering, Upstash Redis caching, and bilingual search architecture.",
           description: "A commercial web platform built for sports nutrition and athletes. Optimized for performance with dynamic attribute filtering, in-memory caching to eliminate catalog latency, and persistent shopping cart.",
           keyFeatures: [
@@ -71,6 +87,13 @@ export const translations = {
         },
         "al-aseel-honey": {
           title: "Al-Aseel — Premium Raw Honey & Natural Wellness",
+          type: "E-Commerce Store",
+          highlights: [
+            "Enhanced filtering by origin, benefit and price",
+            "Built-in image and media optimization",
+            "Animated storytelling and discount carousel",
+            "130+ products catalog",
+          ],
           tagline: "Fluid interactive e-commerce store showcasing 130+ natural honey products with animated visual components, smooth carousel controls, and sub-second load times.",
           description: "An artisanal e-commerce web application crafted for a luxury natural honey brand. Features an expansive catalog of 130+ products, custom promotional animations, interactive brand storytelling, and aggressive asset optimization.",
           keyFeatures: [
@@ -185,12 +208,21 @@ export const translations = {
       allCategory: "الكل",
       watchVideo: "معاينة الفيديو",
       visitLive: "زيارة الموقع الحي",
+      showMore: "عرض المزيد",
+      overviewTitle: "نظرة عامة",
       keyFeaturesTitle: "أبرز مميزات المنصة",
       techStackTitle: "التقنيات المستخدمة",
       highlightsTitle: "مؤشرات الأداء",
       items: {
         "roastique-roastery": {
           title: "محمصة روستيك (Roastique) — مكسرات فاخرة وتسالي وبوكسات ثلاثية الأبعاد",
+          type: "متجر إلكتروني",
+          highlights: [
+            "مصمم بوكسات هدايا 3D تفاعلي بزاوية 360°",
+            "متجر ثنائي اللغة عربي / إنجليزي",
+            "طلب بضغطة واحدة عبر واتساب",
+            "سلة مشتريات محفوظة مع إجمالي فوري",
+          ],
           tagline: "متجر إلكتروني تجاري فاخر للمكسرات والحلويات يضم استوديو تفاعلي ثلاثي الأبعاد 360° لتصميم بوكسات الهدايا، وشيكولاتة دبي، وطلب فوري عبر واتساب.",
           description: "منصة تجارة إلكترونية فاخرة لمحمصة متخصصة في المكسرات النخب الأول، الفواكه المجففة بالتبريد، والبن التخصصي، وشوكولاتة دبي. تتميز باستوديو تفاعلي 360 درجة لتصميم وتخصيص علب الهدايا المقسمة مع بطاقات إهداء مخصصة وأشرطة بختم الشمع.",
           keyFeatures: [
@@ -208,6 +240,13 @@ export const translations = {
         },
         "muscle-gate-supplements": {
           title: "بوابة العضلات (Muscle Gate) — منصة المكملات الغذائية الرياضية",
+          type: "منصة تجارة إلكترونية متكاملة",
+          highlights: [
+            "تصفية متقدمة متعددة الخصائص",
+            "كاش سريع عبر Redis في أقل من ميلي ثانية",
+            "ثنائي اللغة مع بيانات JSON-LD لمحركات البحث",
+            "طلب بضغطة واحدة عبر واتساب",
+          ],
           tagline: "متجر إلكتروني تجاري متكامل للمكملات الغذائية مع تصفية متعددة الخصائص، كاش سريع عبر Redis، وبنية بحث ثنائية اللغة.",
           description: "منصة ويب تجارية مبنية لتغذية الرياضيين. تم تحسينها لتحقيق أعلى أداء عبر تصفية الكتالوج اللحظية، وتخزين مؤقت عبر Redis لإلغاء أي بطء، وحفظ سلة المشتريات بسلاسة.",
           keyFeatures: [
@@ -225,6 +264,13 @@ export const translations = {
         },
         "al-aseel-honey": {
           title: "الأصيل — عسل طبيعي فاخر ومنتجات الصحة والعافية",
+          type: "متجر إلكتروني",
+          highlights: [
+            "تصفية متقدمة حسب المصدر والفائدة والسعر",
+            "تحسين مدمج للصور والوسائط",
+            "سرد بصري متحرك وشريط عروض تفاعلي",
+            "كتالوج يضم أكثر من 130 منتج",
+          ],
           tagline: "متجر إلكتروني تفاعلي يعرض أكثر من 130 منتج عسل طبيعي بمكونات بصرية متحركة، وسرعة تحميل فائقة.",
           description: "تطبيق ويب تجاري مصمم لعلامة تجارية متخصصة في العسل الفاخر. يضم كتالوج ضخم لأكثر من 130 منتج، مع حركات ترويجية مخصصة، وسرد بصري تفاعلي لقصة العلامة، وضغط متقدم للوسائط.",
           keyFeatures: [

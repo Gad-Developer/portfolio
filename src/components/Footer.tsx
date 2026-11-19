@@ -13,7 +13,7 @@ export const Footer = () => {
 
   return (
     <footer className="border-t border-slate-300 bg-white py-8 text-slate-600 text-xs sm:text-sm">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="w-[90%] mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-slate-800 font-bold">
             <span className="text-slate-900">{profileData.name}</span>

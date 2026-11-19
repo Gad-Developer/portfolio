@@ -1,6 +1,7 @@
 [
   {
     "id": "roastique-roastery",
+    "mainTech": ["Next.js", "TypeScript", "Zustand"],
     "title": "Roastique — Gourmet Roastery & 3D Confectionery",
     "tagline": "Artisanal roastery e-commerce featuring an interactive 360° 3D custom gift box builder, Dubai kunafa chocolate catalog, and instant WhatsApp ordering.",
     "category": "E-Commerce",
@@ -35,6 +36,7 @@
   },
   {
     "id": "muscle-gate-supplements",
+    "mainTech": ["Next.js", "TypeScript", "Redis"],
     "title": "Muscle Gate — Sports Nutrition & Supplements Platform",
     "tagline": "Full-stack commercial e-commerce built for sports nutrition with multi-attribute filtering, Upstash Redis caching, and bilingual search architecture.",
     "category": "Full-Stack",
@@ -70,6 +72,7 @@
   },
   {
     "id": "al-aseel-honey",
+    "mainTech": ["React", "Vite", "Tailwind CSS"],
     "title": "Al-Aseel — Premium Raw Honey & Natural Wellness",
     "tagline": "Fluid interactive e-commerce store showcasing 130+ natural honey products with animated visual components, smooth carousel controls, and sub-second load times.",
     "category": "E-Commerce",

@@ -17,7 +17,7 @@ export const Hero = () => {
 
   return (
     <section className="pt-4 pb-8 sm:pt-8 sm:pb-12">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="w-[90%] mx-auto">
         {/* Profile Card Container */}
         <div className="bg-white rounded-3xl border border-slate-300 shadow-sm overflow-hidden">
           {/* Cover Banner */}

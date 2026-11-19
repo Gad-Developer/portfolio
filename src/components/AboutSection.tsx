@@ -15,7 +15,7 @@ export const AboutSection = () => {
 
   return (
     <section id="about" className="py-12 sm:py-16 border-t border-slate-300">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="w-[90%] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column */}
           <div className="lg:col-span-5 space-y-4">

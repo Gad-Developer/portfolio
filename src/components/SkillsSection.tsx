@@ -12,7 +12,7 @@ export const SkillsSection = () => {
 
   return (
     <section id="skills" className="py-12 sm:py-16 border-t border-slate-300">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="w-[90%] mx-auto">
         {/* Section Header */}
         <div className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
