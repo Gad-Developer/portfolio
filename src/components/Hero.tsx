@@ -1,5 +1,7 @@
-import { MapPin, ArrowDown, ArrowUpRight } from 'lucide-react';
-import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons/SocialIcons';
+import { PinIcon } from './icons/AppIcons';
+import { AnimatedArrow } from './icons/AnimatedArrow';
+import { ArrowUpRightIcon } from './icons/ArrowUpRightIcon';
+import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons/AnimatedSocialIcons';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import profileData from '../data/profile.json';
@@ -16,12 +18,12 @@ export const Hero = () => {
     : `${import.meta.env.BASE_URL}/`;
 
   return (
-    <section className="pt-4 pb-8 sm:pt-8 sm:pb-12">
+    <section className="pt-14 pb-8 sm:pt-16 sm:pb-12">
       <div className="w-[90%] mx-auto">
         {/* Profile Card Container */}
-        <div className="bg-white rounded-3xl border border-slate-300 shadow-sm overflow-hidden">
+        <div className="bg-surface rounded-3xl border border-slate-300 border-t-[6px] border-t-brand-600 shadow-sm overflow-hidden">
           {/* Cover Banner */}
-          <div className="relative h-36 sm:h-56 md:h-64 w-full bg-slate-200 overflow-hidden">
+          <div className="relative h-48 sm:h-72 md:h-96 w-full bg-slate-200 overflow-hidden">
             <img
               src={`${baseUrl}${profile.cover}`}
               alt="Profile Cover"
@@ -37,15 +39,15 @@ export const Hero = () => {
                 <img
                   src={`${baseUrl}${profile.avatar}`}
                   alt={profile.name}
-                  className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl object-cover border-4 border-white shadow-md bg-white"
+                  className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl object-cover border-4 border-surface shadow-md bg-surface"
                 />
               </div>
 
               {/* Status Pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-900 text-xs sm:text-sm font-bold self-start sm:self-auto">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 border border-brand-200 text-brand-800 text-xs sm:text-sm font-bold self-start sm:self-auto">
                 <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-600"></span>
                 </span>
                 <span>{t.status}</span>
               </div>
@@ -64,7 +66,7 @@ export const Hero = () => {
 
               <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-slate-600 font-bold">
                 <div className="inline-flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-slate-500" />
+                  <PinIcon className="w-5 h-5 text-slate-500" />
                   <span>{t.location}</span>
                 </div>
                 <span>•</span>
@@ -91,7 +93,7 @@ export const Hero = () => {
                   >
                     <WhatsAppIcon className="w-4 h-4 text-white" />
                     <span>{t.whatsappLabel}: {profile.socials.whatsappDisplay}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-emerald-200" />
+                    <ArrowUpRightIcon className="w-3.5 h-3.5 text-emerald-200" />
                   </a>
                 )}
 
@@ -144,10 +146,10 @@ export const Hero = () => {
 
                 <a
                   href="#projects"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold sm:ms-auto transition shadow-xs"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs sm:text-sm font-bold sm:ms-auto transition shadow-xs"
                 >
                   <span>{t.viewProjects}</span>
-                  <ArrowDown className="w-3.5 h-3.5" />
+                  <AnimatedArrow dir="down" className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -155,8 +157,8 @@ export const Hero = () => {
             {/* Quick Competency Badges Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-6 mt-6 border-t border-slate-200">
               {t.stats.map((stat, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-slate-100 border border-slate-300">
-                  <div className="text-slate-900 font-extrabold text-sm sm:text-base">
+                <div key={idx} className="p-3 rounded-xl bg-brand-100 border border-brand-200 border-s-4 border-s-brand-600">
+                  <div className="text-brand-800 font-extrabold text-sm sm:text-base">
                     {stat.value}
                   </div>
                   <div className="text-slate-600 font-bold text-xs sm:text-sm mt-0.5">

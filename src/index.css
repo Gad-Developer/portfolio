@@ -1,5 +1,112 @@
 @import "tailwindcss";
 
+/* Class-based dark theme: <html class="dark"> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Theme tokens.
+  Light = "Deep Ocean" (navy + blue). Dark = near-black navy with a brighter blue.
+  The slate scale is remapped to blue-tinted greys, and a `brand` scale replaces the old green accent.
+  WhatsApp buttons keep Tailwind's own green (emerald) in both themes.
+*/
+:root {
+  --page: #e6eefb;
+  --surface: #ffffff;
+  --ink: #0b1f3f;
+  --ink-hover: #16305c;
+  --on-ink: #ffffff;
+  --panel: #0b1f3f;
+
+  --sl-50: #f3f7fd;
+  --sl-100: #e6eefb;
+  --sl-200: #d6e4f9;
+  --sl-300: #b4c8e6;
+  --sl-400: #8aa3c7;
+  --sl-500: #5b7396;
+  --sl-600: #51688a;
+  --sl-700: #3b5278;
+  --sl-800: #1b3358;
+  --sl-900: #0b1f3f;
+  --sl-950: #08172f;
+
+  --br-50: #eef4ff;
+  --br-100: #dbe8ff;
+  --br-200: #b9d0fb;
+  --br-300: #8db3f7;
+  --br-500: #3b82f6;
+  --br-600: #2563eb;
+  --br-700: #1d4ed8;
+  --br-800: #17408f;
+
+  --scroll-track: #dbe5f5;
+  --scroll-thumb: #9db4d6;
+  color-scheme: light;
+}
+
+.dark {
+  --page: #060a12;
+  --surface: #0d1424;
+  --ink: #e6eefb;
+  --ink-hover: #ffffff;
+  --on-ink: #0b1f3f;
+  --panel: #0a1426;
+
+  --sl-50: #0a111f;
+  --sl-100: #111a2e;
+  --sl-200: #182440;
+  --sl-300: #324670;
+  --sl-400: #4b6089;
+  --sl-500: #8da2c6;
+  --sl-600: #a6b9d8;
+  --sl-700: #c0cee6;
+  --sl-800: #d8e2f2;
+  --sl-900: #eaf0fa;
+  --sl-950: #f6f9ff;
+
+  --br-50: #121c30;
+  --br-100: #1b2b49;
+  --br-200: #4f74b8;
+  --br-300: #5a82c9;
+  --br-500: #6c9cf0;
+  --br-600: #5b8def;
+  --br-700: #7aa2f7;
+  --br-800: #b4cdfa;
+
+  --scroll-track: #0a111f;
+  --scroll-thumb: #26365a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-hover: var(--ink-hover);
+  --color-on-ink: var(--on-ink);
+  --color-panel: var(--panel);
+
+  --color-slate-50: var(--sl-50);
+  --color-slate-100: var(--sl-100);
+  --color-slate-200: var(--sl-200);
+  --color-slate-300: var(--sl-300);
+  --color-slate-400: var(--sl-400);
+  --color-slate-500: var(--sl-500);
+  --color-slate-600: var(--sl-600);
+  --color-slate-700: var(--sl-700);
+  --color-slate-800: var(--sl-800);
+  --color-slate-900: var(--sl-900);
+  --color-slate-950: var(--sl-950);
+
+  --color-brand-50: var(--br-50);
+  --color-brand-100: var(--br-100);
+  --color-brand-200: var(--br-200);
+  --color-brand-300: var(--br-300);
+  --color-brand-500: var(--br-500);
+  --color-brand-600: var(--br-600);
+  --color-brand-700: var(--br-700);
+  --color-brand-800: var(--br-800);
+}
+
 @layer base {
   * {
     font-family: 'Cairo', system-ui, -apple-system, sans-serif;
@@ -11,17 +118,18 @@
   }
 
   body {
-    background-color: #f8f9fa; /* Restored original calm eye-friendly off-white */
-    color: #0f172a; /* Deep slate-900 readable text */
+    background-color: var(--page);
+    color: var(--sl-900);
     min-height: 100vh;
     overflow-x: hidden;
     font-family: 'Cairo', system-ui, -apple-system, sans-serif;
     font-weight: 500;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   ::selection {
-    background-color: #bbf7d0; /* Clean soft emerald highlight */
-    color: #0f172a !important; /* Preserves dark font color, never overwrites */
+    background-color: var(--br-200);
+    color: var(--sl-950) !important;
   }
 }
 
@@ -31,12 +139,12 @@
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--scroll-track);
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: var(--scroll-thumb);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: var(--sl-400);
 }

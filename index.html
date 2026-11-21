@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="ar" dir="rtl" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="./images/profile.png" />
@@ -12,6 +12,9 @@
     <meta name="description" content="Portfolio of Gad — Full-Stack Developer. Fast commercial e-commerce stores, modern web applications, Redis caching, and responsive frontend interfaces." />
     <meta name="keywords" content="Gad, Full-Stack Developer, Web Developer, React, Next.js, TypeScript, Node.js, Web Development, Portfolio, E-Commerce" />
     <meta name="author" content="Gad" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <link rel="alternate" type="text/plain" href="https://gad-developer.github.io/portfolio/llms.txt" title="LLM summary" />
     <link rel="canonical" href="https://gad-developer.github.io/portfolio/" />
     
     <!-- Open Graph / WhatsApp / Facebook / LinkedIn Previews -->
@@ -20,8 +23,9 @@
     <meta property="og:title" content="Gad — Full-Stack Developer" />
     <meta property="og:description" content="Portfolio of Gad — Full-Stack Developer. Fast commercial web apps, custom e-commerce stores, and high-performance solutions." />
     <meta property="og:image" content="https://gad-developer.github.io/portfolio/images/profile.png" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="ar_AR" />
+    <meta property="og:locale" content="ar_AR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Gad — Full-Stack Developer" />
 
     <!-- Twitter Card -->
     <meta property="twitter:card" content="summary" />
@@ -42,13 +46,12 @@
             "jobTitle": "Full-Stack Developer",
             "url": "https://gad-developer.github.io/portfolio/",
             "image": "https://gad-developer.github.io/portfolio/images/profile.png",
-            "email": "gadcontact815@gmail.com",
             "telephone": "+201508521127",
             "sameAs": [
               "https://github.com/Gad-Developer",
               "https://www.linkedin.com/in/gad-developer-b279a5367/",
               "https://www.facebook.com/profile.php?id=61590521530367&locale=ar_AR",
-              "https://www.instagram.com/gad_developer815/?hl=en"
+              "https://www.instagram.com/gad.developer/?hl=en"
             ],
             "knowsAbout": [
               "React",
@@ -68,6 +71,36 @@
             "name": "Gad — Full-Stack Developer Portfolio",
             "description": "Commercial portfolio showcasing full-stack web applications, e-commerce stores, and high-performance development.",
             "inLanguage": ["en", "ar"]
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://gad-developer.github.io/portfolio/#service",
+            "name": "Gad — Full-Stack Web Development",
+            "url": "https://gad-developer.github.io/portfolio/",
+            "provider": { "@id": "https://gad-developer.github.io/portfolio/#person" },
+            "telephone": "+201508521127",
+            "areaServed": ["EG", "AE", "SA", "Worldwide"],
+            "serviceType": ["E-commerce store development", "Full-stack web application development", "Performance and caching optimization", "SEO and structured data"]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Who is Gad?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Gad is a full-stack developer who builds fast e-commerce stores and modern web applications using React, Next.js, TypeScript, Node.js, MongoDB and Redis." }
+              },
+              {
+                "@type": "Question",
+                "name": "What services does Gad offer?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Custom e-commerce stores, full-stack web applications, bilingual Arabic/English websites, caching and performance optimization, and SEO with structured data." }
+              },
+              {
+                "@type": "Question",
+                "name": "How can I contact Gad?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The fastest way is WhatsApp on +201508521127. Gad is also on GitHub, LinkedIn, Facebook and Instagram." }
+              }
+            ]
           }
         ]
       }
@@ -77,8 +110,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <script>try{if(localStorage.getItem('portfolio_theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}</script>
   </head>
-  <body class="bg-[#f8f9fa] text-slate-900 min-h-screen font-cairo">
+  <body class="bg-page text-slate-900 min-h-screen font-cairo">
     <div id="root"></div>
     <script type="module" src="./src/main.tsx"></script>
   </body>

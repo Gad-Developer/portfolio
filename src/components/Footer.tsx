@@ -1,4 +1,4 @@
-import { ArrowUp } from 'lucide-react';
+import { AnimatedArrow } from './icons/AnimatedArrow';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import profileData from '../data/profile.json';
@@ -12,30 +12,30 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-slate-300 bg-white py-8 text-slate-600 text-xs sm:text-sm">
+    <footer className="border-t-4 border-brand-600 bg-panel py-8 text-white/70 text-xs sm:text-sm">
       <div className="w-[90%] mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-slate-800 font-bold">
-            <span className="text-slate-900">{profileData.name}</span>
+          <div className="flex items-center gap-2 text-white font-bold">
+            <span className="text-white">{profileData.name}</span>
             <span>•</span>
-            <span className="text-slate-600 font-semibold">{t.role}</span>
+            <span className="text-white/70 font-semibold">{t.role}</span>
           </div>
 
-          <div className="flex items-center gap-4 font-semibold text-slate-500">
+          <div className="flex items-center gap-4 font-semibold text-white/70">
             <span>{t.builtWith}</span>
             <button
               type="button"
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 text-slate-700 hover:text-slate-950 font-bold transition cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-white/70 hover:text-white font-bold transition cursor-pointer"
               aria-label="Back to top"
             >
               <span>{t.backToTop}</span>
-              <ArrowUp className="w-3.5 h-3.5" />
+              <AnimatedArrow dir="up" className="w-5 h-5" />
             </button>
           </div>
         </div>
 
-        <div className="mt-4 pt-4 border-t border-slate-200 text-center sm:text-start text-slate-500 text-xs font-medium">
+        <div className="mt-4 pt-4 border-t border-white/15 text-center sm:text-start text-white/70 text-xs font-medium">
           © {new Date().getFullYear()} {profileData.name}. {t.copyright}
         </div>
       </div>

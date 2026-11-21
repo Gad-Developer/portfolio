@@ -24,15 +24,16 @@ export const ProjectsSection = () => {
   }, [selectedCategory]);
 
   return (
-    <section id="projects" className="py-12 sm:py-16 border-t border-slate-300">
+    <section id="projects" className="py-16 sm:py-24">
       <div className="w-[90%] mx-auto">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               {t.sectionTitle}
             </h2>
-            <p className="mt-1 text-sm sm:text-base font-semibold text-slate-600">
+            <span className="block mt-2.5 h-1.5 w-14 rounded-full bg-brand-600" />
+            <p className="mt-2 text-sm sm:text-base font-semibold text-slate-600">
               {t.sectionSubtitle}
             </p>
           </div>
@@ -46,8 +47,8 @@ export const ProjectsSection = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-slate-900 text-white shadow-sm'
-                    : 'bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 hover:text-slate-900'
+                    ? 'bg-brand-600 text-white shadow-sm'
+                    : 'bg-surface text-slate-700 border border-slate-300 hover:bg-slate-100 hover:text-slate-900'
                 }`}
               >
                 {cat === 'All' ? t.allCategory : cat}

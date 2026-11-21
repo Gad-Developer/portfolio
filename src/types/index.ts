@@ -51,6 +51,5 @@ export interface Profile {
     instagram?: string;
     whatsapp: string;
     whatsappDisplay: string;
-    email: string;
   };
 }

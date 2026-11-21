@@ -1,6 +1,6 @@
 import skillsData from '../data/skills.json';
 import type { SkillCategory } from '../types';
-import { Layers } from 'lucide-react';
+import { LayersIcon } from './icons/AppIcons';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 
@@ -11,14 +11,15 @@ export const SkillsSection = () => {
   const t = translations[language].skills;
 
   return (
-    <section id="skills" className="py-12 sm:py-16 border-t border-slate-300">
+    <section id="skills" className="py-16 sm:py-20 bg-slate-200">
       <div className="w-[90%] mx-auto">
         {/* Section Header */}
         <div className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
             {t.sectionTitle}
           </h2>
-          <p className="mt-1.5 text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
+          <span className="block mt-2.5 h-1.5 w-14 rounded-full bg-brand-600" />
+          <p className="mt-2 text-base sm:text-lg font-bold text-slate-900 leading-relaxed">
             {t.sectionSubtitle}
           </p>
         </div>
@@ -32,31 +33,25 @@ export const SkillsSection = () => {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-3xl border border-slate-300 p-6 shadow-sm flex flex-col justify-between"
+                className="bg-surface rounded-3xl border border-slate-300 border-t-[6px] border-t-brand-600 p-7 shadow-sm flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-2.5 pb-3.5 border-b border-slate-200 mb-4">
-                    <Layers className="w-5 h-5 text-slate-900" />
+                    <LayersIcon className="w-6 h-6 text-brand-600" />
                     <h3 className="font-black text-base sm:text-lg text-slate-950">
                       {categoryTitle}
                     </h3>
                   </div>
 
-                  <div className="space-y-2.5">
+                  <div className="space-y-3">
                     {cat.skills.map((skill, sIdx) => {
-                      const levelText =
-                        t.levels[skill.level as keyof typeof t.levels] || skill.level;
-
                       return (
                         <div
                           key={sIdx}
-                          className="px-3.5 py-2.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between"
+                          className="px-4 py-3.5 rounded-xl bg-slate-50 border border-slate-200"
                         >
                           <span className="font-extrabold text-sm text-slate-950">
                             {skill.name}
-                          </span>
-                          <span className="text-xs font-black font-mono px-2.5 py-1 rounded-md bg-slate-200 text-slate-900 border border-slate-300">
-                            {levelText}
                           </span>
                         </div>
                       );

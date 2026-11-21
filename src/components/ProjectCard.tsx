@@ -1,5 +1,8 @@
 import { useRef, useState } from 'react';
-import { ExternalLink, Play, Check, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Play } from 'lucide-react';
+import { CheckIcon } from './icons/AppIcons';
+import { AnimatedArrow } from './icons/AnimatedArrow';
+import { ArrowUpRightIcon } from './icons/ArrowUpRightIcon';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import type { Project } from '../types';
@@ -18,6 +21,8 @@ export const ProjectCard = ({ project, onOpenDetails }: ProjectCardProps) => {
 
   const projectType = itemTrans?.type ?? project.category;
   const highlights = itemTrans?.highlights ?? project.keyFeatures.slice(0, 4);
+  const tagline = itemTrans?.tagline;
+  const metrics: string[] = itemTrans?.metrics ?? [];
   const mainTech = project.mainTech ?? project.techStack.slice(0, 3);
 
   const baseUrl = import.meta.env.BASE_URL.endsWith('/')
@@ -34,12 +39,10 @@ export const ProjectCard = ({ project, onOpenDetails }: ProjectCardProps) => {
     videoRef.current?.play().catch(() => setPlaying(false));
   };
 
-  const MoreArrow = isRTL ? ArrowLeft : ArrowRight;
-
   return (
-    <article className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 lg:gap-14 items-center py-10 lg:min-h-[80vh] border-t border-slate-300 first:border-t-0">
+    <article className="grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-8 lg:gap-10 items-start py-14 lg:py-16 border-t border-slate-300 first:border-t-0">
       {/* Media frame */}
-      <div className="relative aspect-[16/10] rounded-[28px] overflow-hidden bg-slate-200 ring-1 ring-slate-900/10 shadow-[0_40px_70px_-35px_rgba(15,23,42,0.55)]">
+      <div className="relative aspect-[16/10] rounded-[28px] overflow-hidden bg-slate-200 ring-1 ring-ink/10 shadow-[0_40px_70px_-35px_rgba(15,23,42,0.55)]">
         {thumbnailSrc && (
           <img
             src={thumbnailSrc}
@@ -63,7 +66,7 @@ export const ProjectCard = ({ project, onOpenDetails }: ProjectCardProps) => {
 
         {/* Bottom shade and action buttons */}
         <div
-          className={`absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-slate-900/60 to-transparent pointer-events-none transition-opacity duration-300 ${
+          className={`absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-panel/60 to-transparent pointer-events-none transition-opacity duration-300 ${
             playing ? 'opacity-0' : 'opacity-100'
           }`}
         />
@@ -76,16 +79,16 @@ export const ProjectCard = ({ project, onOpenDetails }: ProjectCardProps) => {
             href={project.liveUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-slate-900 text-xs sm:text-sm font-bold shadow-sm hover:-translate-y-0.5 transition"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-[#0b1f3f] text-xs sm:text-sm font-bold shadow-sm hover:-translate-y-0.5 transition"
           >
             <span>{t.visitLive}</span>
-            <ExternalLink className="w-3.5 h-3.5" />
+            <ArrowUpRightIcon className="w-3.5 h-3.5" />
           </a>
           {videoSrc && (
             <button
               type="button"
               onClick={playVideo}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-900/60 backdrop-blur-md text-white text-xs sm:text-sm font-bold ring-1 ring-white/25 hover:-translate-y-0.5 transition cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-panel/60 backdrop-blur-md text-white text-xs sm:text-sm font-bold ring-1 ring-white/25 hover:-translate-y-0.5 transition cursor-pointer"
             >
               <Play className="w-3.5 h-3.5 fill-white" />
               <span>{t.watchVideo}</span>
@@ -95,9 +98,9 @@ export const ProjectCard = ({ project, onOpenDetails }: ProjectCardProps) => {
       </div>
 
       {/* Content */}
-      <div className="flex flex-col items-start">
+      <div className="flex flex-col items-start min-w-0 wrap-break-word">
         {/* Project type */}
-        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-slate-900 text-white text-sm sm:text-base font-extrabold">
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-brand-600 text-white text-sm sm:text-base font-extrabold">
           {projectType}
         </span>
 
@@ -106,32 +109,51 @@ export const ProjectCard = ({ project, onOpenDetails }: ProjectCardProps) => {
           {mainTech.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 rounded-lg bg-white text-slate-800 text-xs sm:text-sm font-bold border border-slate-300 font-mono"
+              className="px-3 py-1 rounded-lg bg-brand-100 text-brand-800 text-xs sm:text-sm font-bold border border-brand-200 font-mono"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="w-full h-px bg-slate-300 my-5" />
+        <div className="w-full h-px bg-slate-300 my-6" />
 
         {/* Main features */}
-        <ul className="space-y-3 w-full">
+        <ul className="space-y-4 w-full">
           {highlights.map((feat) => (
             <li key={feat} className="flex items-start gap-2.5 text-sm sm:text-base font-semibold text-slate-800">
-              <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-1.5" />
+              <CheckIcon className="w-5 h-5 text-brand-600 shrink-0 mt-1" />
               <span className="leading-relaxed">{feat}</span>
             </li>
           ))}
         </ul>
 
+        {tagline && (
+          <p className="mt-6 text-sm sm:text-base font-medium text-slate-700 leading-relaxed line-clamp-3">
+            {tagline}
+          </p>
+        )}
+
+        {metrics.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-5">
+            {metrics.map((m) => (
+              <span
+                key={m}
+                className="px-3 py-1 rounded-full bg-brand-100 text-brand-800 text-xs font-bold border border-brand-200"
+              >
+                {m}
+              </span>
+            ))}
+          </div>
+        )}
+
         <button
           type="button"
           onClick={() => onOpenDetails(project)}
-          className="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-slate-900 hover:text-emerald-700 transition cursor-pointer group"
+          className="mt-7 inline-flex items-center gap-2 text-sm font-extrabold text-brand-600 hover:text-brand-700 transition cursor-pointer group"
         >
-          <span className="border-b-2 border-slate-900 group-hover:border-emerald-700">{t.showMore}</span>
-          <MoreArrow className="w-4 h-4" />
+          <span className="border-b-2 border-brand-600 group-hover:border-brand-700">{t.showMore}</span>
+          <AnimatedArrow dir={isRTL ? 'left' : 'right'} className="w-5 h-5" />
         </button>
       </div>
     </article>

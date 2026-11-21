@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="30 25 180 385" fill="none">
+  <!-- Single arrow made from Lordicon "arrows-up" (wired lineal 3378): second arrow removed, colors use currentColor -->
+  <path d="M45 130h47.5v270h65V130H205l-80-95z" fill="currentColor" fill-opacity=".22"/>
+  <path d="M92.5 130H45l80-95v365H92.5z" fill="currentColor" fill-opacity=".18"/>
+  <path d="M45 130h47.5v270h65V130H205l-80-95z" stroke="currentColor" stroke-width="7" stroke-linecap="square" stroke-linejoin="round"/>
+</svg>

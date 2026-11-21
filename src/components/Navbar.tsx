@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Menu, X, ArrowUpRight, ChevronRight } from 'lucide-react';
-import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons/SocialIcons';
+import { Menu, X, ChevronRight } from 'lucide-react';
+import { ArrowUpRightIcon } from './icons/ArrowUpRightIcon';
+import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons/AnimatedSocialIcons';
 import { LanguageToggle } from './LanguageToggle';
+import { ThemeToggle } from './ThemeToggle';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import profileData from '../data/profile.json';
@@ -26,15 +28,15 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full overflow-hidden rounded-b-[28px] border-b border-slate-300 bg-white/95 backdrop-blur-md shadow-[0_12px_30px_-18px_rgba(15,23,42,0.35)]">
+    <header className="sticky top-0 z-40 w-full rounded-b-[28px] border-b-4 border-brand-600 bg-surface/95 backdrop-blur-md shadow-[0_12px_30px_-18px_rgba(15,23,42,0.35)]">
       <div className="w-[90%] mx-auto">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-24 md:h-28">
           {/* Brand */}
-          <a href="#" className="flex items-center gap-2.5 group shrink-0">
+          <a href="#" className="flex items-center gap-3 md:gap-4 group shrink-0">
             <img
               src={`${baseUrl}${profile.avatar}`}
               alt={profile.name}
-              className="w-8 h-8 rounded-full object-cover border border-slate-300 shadow-2xs"
+              className="shrink-0 w-[76px] h-[76px] md:w-[92px] md:h-[92px] rounded-full object-cover border-[3px] border-surface bg-surface shadow-md"
             />
             <span className="font-black text-lg sm:text-xl tracking-tight text-slate-950 group-hover:text-slate-700 transition">
               {profile.name}
@@ -47,7 +49,7 @@ export const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3.5 py-1.5 rounded-xl hover:text-slate-950 hover:bg-slate-100 transition"
+                className="px-4 py-2.5 rounded-xl hover:text-brand-800 hover:bg-brand-100 transition"
               >
                 {link.label}
               </a>
@@ -56,6 +58,7 @@ export const Navbar = () => {
 
           {/* Desktop Right Actions: Language Toggle & Compact WhatsApp CTA */}
           <div className="hidden md:flex items-center gap-3 shrink-0">
+            <ThemeToggle />
             <LanguageToggle />
 
             <a
@@ -67,12 +70,13 @@ export const Navbar = () => {
             >
               <WhatsAppIcon className="w-4 h-4 text-white" />
               <span>{t.whatsapp}</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-emerald-200" />
+              <ArrowUpRightIcon className="w-3.5 h-3.5 text-emerald-200" />
             </a>
           </div>
 
           {/* Mobile Right Controls: Language Toggle & Touch-Friendly Hamburger */}
           <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
             <LanguageToggle />
             <button
               type="button"
@@ -89,7 +93,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu Dropdown: High-Quality Full Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-slate-300 bg-white/98 backdrop-blur-md px-4 pt-3 pb-6 space-y-3 shadow-lg animate-in slide-in-from-top-2 duration-150">
+        <div className="md:hidden rounded-b-[28px] border-b border-slate-300 bg-surface/98 backdrop-blur-md px-5 pt-4 pb-7 space-y-3 shadow-lg animate-in slide-in-from-top-2 duration-150">
           <div className="space-y-1">
             {navLinks.map((link) => (
               <a
@@ -116,7 +120,7 @@ export const Navbar = () => {
             >
               <WhatsAppIcon className="w-5 h-5 text-white" />
               <span>{t.whatsapp}: {profile.socials.whatsappDisplay}</span>
-              <ArrowUpRight className="w-4 h-4 text-emerald-200" />
+              <ArrowUpRightIcon className="w-4 h-4 text-emerald-200" />
             </a>
 
             {/* Social Channels Row inside Mobile Drawer */}

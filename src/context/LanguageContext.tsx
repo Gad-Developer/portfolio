@@ -18,7 +18,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     } catch {
       // Fallback
     }
-    return 'en';
+    return 'ar';
   });
 
   const setLanguage = (lang: Language) => {

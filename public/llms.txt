@@ -1,0 +1,14 @@
+# Gad — Full-Stack Developer
+
+> Portfolio of Gad, a full-stack developer building fast e-commerce stores and modern web applications (React, Next.js, TypeScript, Node.js, MongoDB, Redis). Site is bilingual: Arabic (default) and English.
+
+- Site: https://gad-developer.github.io/portfolio/
+- Contact: WhatsApp +201508521127 (https://wa.me/201508521127)
+- GitHub: https://github.com/Gad-Developer
+- LinkedIn: https://www.linkedin.com/in/gad-developer-b279a5367/
+- Instagram: https://www.instagram.com/gad.developer/
+
+## Services
+- Custom e-commerce stores
+- Full-stack web applications
+- Performance, caching and SEO/structured data

@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { Mail, Copy, Check, ArrowUpRight } from 'lucide-react';
-import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons/SocialIcons';
+import { Copy } from 'lucide-react';
+import { CheckIcon } from './icons/AppIcons';
+import { ArrowUpRightIcon } from './icons/ArrowUpRightIcon';
+import { GithubIcon, LinkedInIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from './icons/AnimatedSocialIcons';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../data/translations';
 import profileData from '../data/profile.json';
@@ -9,16 +11,9 @@ import type { Profile } from '../types';
 const profile: Profile = profileData as Profile;
 
 export const ContactSection = () => {
-  const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
   const { language } = useLanguage();
   const t = translations[language].contact;
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(profile.socials.email);
-    setCopiedEmail(true);
-    setTimeout(() => setCopiedEmail(false), 2500);
-  };
 
   const handleCopyPhone = () => {
     navigator.clipboard.writeText(profile.socials.whatsappDisplay);
@@ -27,9 +22,9 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 border-t border-slate-300">
+    <section id="contact" className="py-12 sm:py-16">
       <div className="w-[90%] mx-auto">
-        <div className="bg-white rounded-3xl border border-slate-300 p-8 sm:p-12 shadow-sm space-y-8 max-w-3xl mx-auto">
+        <div className="bg-surface rounded-3xl border border-slate-300 p-8 sm:p-12 border-b-8 border-b-brand-600 shadow-sm space-y-8 max-w-3xl mx-auto">
           {/* Section Header */}
           <div className="text-center space-y-2">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
@@ -41,9 +36,9 @@ export const ContactSection = () => {
           </div>
 
           {/* Primary Contact: WhatsApp Card */}
-          <div className="rounded-2xl border-2 border-emerald-500 bg-emerald-50/50 p-6 sm:p-7 text-center space-y-4 shadow-xs">
+          <div className="rounded-2xl border-2 border-emerald-500 bg-emerald-50/50 dark:bg-emerald-500/10 p-6 sm:p-7 text-center space-y-4 shadow-xs">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-600 text-white text-xs font-black tracking-wide uppercase">
-              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-surface animate-pulse" />
               <span>{t.primaryBadge}</span>
             </div>
 
@@ -67,19 +62,19 @@ export const ContactSection = () => {
               >
                 <WhatsAppIcon className="w-5 h-5 text-white" />
                 <span>{t.chatWhatsApp}: {profile.socials.whatsappDisplay}</span>
-                <ArrowUpRight className="w-4 h-4 text-emerald-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
+                <ArrowUpRightIcon className="w-4 h-4 text-emerald-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition" />
               </a>
 
               <button
                 type="button"
                 onClick={handleCopyPhone}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm sm:text-base border border-slate-300 transition cursor-pointer shadow-xs"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-surface hover:bg-slate-100 text-slate-900 font-bold text-sm sm:text-base border border-slate-300 transition cursor-pointer shadow-xs"
                 title="Copy phone number"
               >
                 {copiedPhone ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-600" />
-                    <span className="text-emerald-700 font-black">{t.copiedNumber}</span>
+                    <CheckIcon className="w-5 h-5 text-emerald-600" />
+                    <span className="text-emerald-700 dark:text-emerald-400 font-black">{t.copiedNumber}</span>
                   </>
                 ) : (
                   <>
@@ -97,49 +92,11 @@ export const ContactSection = () => {
                 href={profile.socials.whatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="text-emerald-700 hover:text-emerald-800 underline underline-offset-4 inline-flex items-center gap-1 font-mono font-bold"
+                className="text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 underline underline-offset-4 inline-flex items-center gap-1 font-mono font-bold"
               >
                 <span dir="ltr">{profile.socials.whatsapp}</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRightIcon className="w-3.5 h-3.5" />
               </a>
-            </div>
-          </div>
-
-          {/* Secondary Contact: Email */}
-          <div className="rounded-2xl border border-slate-300 bg-slate-50 p-5 sm:p-6 text-center space-y-3">
-            <div className="text-xs font-black text-slate-500 uppercase tracking-wider">
-              {t.secondaryBadge}
-            </div>
-            <div className="text-base sm:text-lg font-black text-slate-900">
-              {t.emailLabel}: <span dir="ltr">{profile.socials.email}</span>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1">
-              <a
-                href={`mailto:${profile.socials.email}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm sm:text-base transition shadow-xs"
-              >
-                <Mail className="w-4 h-4" />
-                <span>{t.sendEmail}</span>
-              </a>
-
-              <button
-                type="button"
-                onClick={handleCopyEmail}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-sm sm:text-base border border-slate-300 transition cursor-pointer"
-              >
-                {copiedEmail ? (
-                  <>
-                    <Check className="w-4 h-4 text-emerald-600" />
-                    <span className="text-emerald-700 font-bold">{t.copiedEmail}</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4 text-slate-500" />
-                    <span>{t.copyEmail}</span>
-                  </>
-                )}
-              </button>
             </div>
           </div>
 
@@ -154,7 +111,7 @@ export const ContactSection = () => {
               >
                 <WhatsAppIcon className="w-4 h-4" />
                 <span>{language === 'ar' ? 'واتساب' : 'WhatsApp'} ({profile.socials.whatsappDisplay})</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <ArrowUpRightIcon className="w-3.5 h-3.5" />
               </a>
             )}
 
@@ -167,7 +124,7 @@ export const ContactSection = () => {
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>GitHub</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                <ArrowUpRightIcon className="w-3.5 h-3.5 text-slate-400" />
               </a>
             )}
 
@@ -180,7 +137,7 @@ export const ContactSection = () => {
               >
                 <LinkedInIcon className="w-4 h-4 text-[#0A66C2]" />
                 <span>LinkedIn</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                <ArrowUpRightIcon className="w-3.5 h-3.5 text-slate-400" />
               </a>
             )}
 
@@ -193,7 +150,7 @@ export const ContactSection = () => {
               >
                 <FacebookIcon className="w-4 h-4 text-[#1877F2]" />
                 <span>Facebook</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                <ArrowUpRightIcon className="w-3.5 h-3.5 text-slate-400" />
               </a>
             )}
 
@@ -206,7 +163,7 @@ export const ContactSection = () => {
               >
                 <InstagramIcon className="w-4 h-4 text-[#E4405F]" />
                 <span>Instagram</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                <ArrowUpRightIcon className="w-3.5 h-3.5 text-slate-400" />
               </a>
             )}
           </div>
